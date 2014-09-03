@@ -7,8 +7,10 @@
 require_once SHARED_ADDONPATH . 'libraries/aws/aws.phar';
  
 require_once (SHARED_ADDONPATH . 'helpers/StringHelper.php');
+
 require_once (SHARED_ADDONPATH . 'libraries/Xervmon/CloudType.php');
-require_once (SHARED_ADDONPATH . 'libraries/Xervmon/MongodbFactory.php');
+require_once SHARED_ADDONPATH . "libraries/XervmonMongoQB.php";
+require_once (SHARED_ADDONPATH . 'libraries/MongoQB/src/MongoQB/Builder.php');
 
 use Aws\S3\S3Client;
 class Admin extends Admin_Controller
@@ -17,6 +19,8 @@ class Admin extends Admin_Controller
 	protected $section = 'accounts';
 	private $phpmongoClient;
 	private $_ci;
+	
+	static $dbh;
 
 	/**
 	 * Every time this controller controller is called should:
@@ -31,6 +35,9 @@ class Admin extends Admin_Controller
 
 		$this -> lang -> load(array('Account'));
 		$this -> load -> config('Account/Account');
+		$this -> phpmongoClient = new XervmonMongoQB();
+		$this -> phpmongoClient = $this -> phpmongoClient -> getMongoQB();
+		
 	}
 
 	/**
@@ -38,7 +45,8 @@ class Admin extends Admin_Controller
 	 */
 	public function index()
 	{
-		
+		print_r($this->current_user);
+				
 	}
 
 	/**
