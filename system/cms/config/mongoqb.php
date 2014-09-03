@@ -1,6 +1,6 @@
 <?php
 $config['mongoqb'] = array(
-    'dsn'  =>  'mongodb://192.241.230.33:27017/xdockers',
+    'dsn'  =>  'mongodb://web_user:temp@localhost:27017/xdocker',
     'persist'   =>  true,
     'persist_key'   =>  'mongoqb',
     'replica_set'   =>  false,
