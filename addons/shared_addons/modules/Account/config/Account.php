@@ -25,3 +25,5 @@ $config['encryption_key'] = 'yDo4V5B0j9V3JRJ4lO55q77Wm5r7dLC8';
 $config['aws_regions' ] = array('us-east-1', 'us-west-1', 
         				  'us-west-2', 'sa-east-1', 'eu-west-1', 
         				  'ap-northeast-1' , 'ap-southeast-1' , 'ap-southeast-2');
+						  
+$config['cloudProviders'] = array('' => 'Select a provider', 'Amazon AWS' => 'Amazon AWS'); 
