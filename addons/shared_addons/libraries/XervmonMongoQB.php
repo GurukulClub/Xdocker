@@ -25,7 +25,6 @@ class XervmonMongoQB
 		self::$_ci = ci();
 		if (self::$_ci)
 		{
-			log_message('debug', 'Loading Configuration Data for MongoQB :' . self::$_config_file);
 			try
 			{
 				self::$mongoQB = new \MongoQB\Builder($config);
