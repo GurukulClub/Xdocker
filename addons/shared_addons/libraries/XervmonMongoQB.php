@@ -24,7 +24,6 @@ class XervmonMongoQB
 			try
 			{
 				self::$mongoQB = new \MongoQB\Builder(self::$_ci->config->item('mongoqb'));
-				self::$_customerIdentifier = trim($config['customer_identifier']);
 				self::$loadConfig = true;
 				log_message('debug', 'Connected to MongoQB...'. json_encode($config));
 			}
@@ -112,18 +111,10 @@ echo ' <a href="?page=' . $next . '">Next</a>';
 	
 	public function getData($collection, $select, $where = array(), $limit = 25, $offset = 0)
 	{
-		$where['customerIdentifier'] = self::$_customerIdentifier;
 		//@TODO
 		return self::$mongoQB->select($select)->limit($limit)->offset($offset)
 		->orderBy(array('_id' => 'desc'))->getWhere($collection, $where);	
 		//return $this->_mongo_db->limit($limit)->offset($offset)->order_by(array('_id' => 'desc'))->get_where($collection, $where);	
-	}
-	
-	public static function getCustomerIdentifier()
-	{
-		if(self::$loadConfig) self::init();
-		
-		return self::$_customerIdentifier;
 	}
 	
 	public function getMongoQB()
