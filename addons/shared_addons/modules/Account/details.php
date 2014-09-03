@@ -31,7 +31,7 @@ class Module_Account extends Module
 			'sections' => array(
 				'accounts' => array(
 					'name' => 'account:list_title',
-					'uri' => 'admin/account',
+					'uri' => 'admin/Account',
 					'shortcuts' => array(
 						array(
 							'name' => 'account:create_title',
