@@ -11,7 +11,7 @@ require_once (SHARED_ADDONPATH . 'libraries/Xervmon/CloudType.php');
 require_once (SHARED_ADDONPATH . 'libraries/Xervmon/MongodbFactory.php');
 
 use Aws\S3\S3Client;
-class Accounts_Admin extends Admin_Controller
+class Admin_Manage extends Admin_Controller
 {
 	/** @var string The current active section */
 	protected $section = 'accounts';
