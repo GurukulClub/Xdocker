@@ -96,8 +96,8 @@ h4 {
 	$(document ).ready(function() {
   		// Handler for .ready() called.
   		$(".cloudProvider").change(function() {
-  		$('.populateFields').html(populateFields($(".cloudProvider").val()));
-	});
+  			$('.populateFields').html(populateFields($(this).val()));
+		});
 	});
 	
 	populateFields = function (cloudProvider)
