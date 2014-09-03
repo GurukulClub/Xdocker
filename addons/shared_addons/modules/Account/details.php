@@ -6,7 +6,7 @@
  * @author  Xervmon Dev Team
  * @package Xervmon\Core\Modules\AmazonAccount
  */
-class Module_Accounts extends Module
+class Module_Account extends Module
 {
 	public $version = '2.0.0';
 
