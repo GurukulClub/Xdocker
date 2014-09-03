@@ -1,0 +1,393 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Monitoring</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Le styles -->
+<link href="css/bootstrap/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/common/style.css" rel="stylesheet">
+<link href="css/common/jquery-ui.css" rel="stylesheet">
+<link href="css/common/responsiveStyle.css" rel="stylesheet">
+<link href="css/common/daterangepicker-bs2.css" rel="stylesheet">
+<link href="css/common/select2.css" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <logo class="logoInside"><img src="img/logo-small.png"></logo>
+            <ul class="xervmon-topList">
+                <li class="xervmon-search">
+                    <input type="text" placeholder="Search">
+                    <i class="icon-search"></i></li>
+    <li class="xervmon-priority"><a href="#highPriority" class="blink">2 High priority actions</a></li>
+    <li><a href="#"><span class="hpIcon icons pull-left"></span></a></li>
+    <li class="xervmon-user">Welcome, ajith1<span class="settings"></span>
+     <div class="settingsDetail">
+      <ul>
+       <li><a href="#"><span class="editProfile"></span>Edit Profile</a></li>
+       <li><a href="#"><span class="logout"></span>Logout</a></li>
+      </ul>
+     </div>
+    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="xervmon-container" class="row-fluid">
+<button type="button" class="btn btn-navbar tabIcon" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+          </button>
+    <div id="xervmon-sidebar">
+        <div class=" sidebar-nav">
+            <div id="accordion2" class="accordion">
+                <div class="nav-header">MAIN MENU</div>
+                <div class="accordion-group" id="dashboard">
+     <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFirst"><span class="sideBarIcon dashboardIcon"></span> Dashboard</i> </a> </div>
+     <div class="accordion-body collapse" id="collapseFirst">
+                        <div class="accordion-inner"></div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="manage">
+     <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"> <span class="sideBarIcon manageIcon"></span>Manage<i class="arrow"></i> </a> </div>
+                    <div id="collapseOne" class="accordion-body collapse">
+                        <div class="accordion-inner active"><span class="sideBarIcon manageBuisenessIcon"></span>Business Metadata </div>
+                        <div class="accordion-inner"><span class="sideBarIcon cheifClientIcon"></span>Chef Client</div>
+                        <div class="accordion-inner "><span class="sideBarIcon commentsIcon"></span>Comments</div>
+                        <div class="accordion-inner"><span class="sideBarIcon manageenterpriseIcon"></span>Enterprise App Bazaar</div>
+                        <div class="accordion-inner"><span class="sideBarIcon filesIcon"></span>Files</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="cloud">
+     <div class="accordion-heading"> <a href="#collapseTwo" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon cloudIcon"></span>Cloud<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseTwo">
+                        <div class="accordion-inner active"><span class="sideBarIcon deployPlannerIcon"></span>Deployment Planner</div>
+                        <div class="accordion-inner"><span class="sideBarIcon emailTemplateIcon"></span>Email Templates</div>
+                        <div class="accordion-inner"><span class="sideBarIcon manageCloudIcon"></span>Manage Cloud</div>
+                        <div class="accordion-inner"><span class="sideBarIcon monitorIcon"></span>Monitoring</div>
+                        <div class="accordion-inner"><span class="sideBarIcon rackcloudObjectIcon"></span>Rackcloud ObjectStorage</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="tools">
+     <div class="accordion-heading"> <a href="#collapseThree" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon toolIcon"></span>Tools<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseThree">
+                        <div class="accordion-inner active"><span class="sideBarIcon apiMngmtIcon"></span> API Management</div>
+                        <div class="accordion-inner"><span class="sideBarIcon maintenanceIcon"></span> Maintenance</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="users">
+     <div class="accordion-heading"> <a href="#collapseFour" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon usersIcon"></span>Users<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseFour">
+                        <div class="accordion-inner active"><span class="sideBarIcon groupsIcon"></span>Groups</div>
+                        <div class="accordion-inner"><span class="sideBarIcon permissionsIcon"></span>Permissions</div>
+                        <div class="accordion-inner"><span class="sideBarIcon usersIconNew"></span>Users</div>
+                    </div>
+                </div>
+                <div class="accordion-group selectedAccordian" id="settings">
+     <div class="accordion-heading"> <a href="#collapseFive" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon settingsIcon"></span>Settings</a> </div>
+     <div class="accordion-body collapse" id="collapseFive">
+                        <div class="accordion-inner"></div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="addons">
+     <div class="accordion-heading"> <a href="#collapseSix" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon addonsIcon"></span>Add-ons<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseSix">
+                        <div class="accordion-inner active"><span class="sideBarIcon modulesIcon"></span>Modules</div>
+                        <div class="accordion-inner"><span class="sideBarIcon themesIcon"></span>Themes</div>
+                        <div class="accordion-inner"><span class="sideBarIcon pluginsIcon"></span>Plugins</div>
+                        <div class="accordion-inner"><span class="sideBarIcon widgetsIcon"></span>Widgets</div>
+                        <div class="accordion-inner"><span class="sideBarIcon fieldTypesIcon"></span>Field Types</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="profile">
+     <div class="accordion-heading"> <a href="#collapseSeven" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon profileIcon"></span>Profile<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseSeven">
+                        <div class="accordion-inner active"><span class="sideBarIcon editProfileIcon"></span>Edit profile</div>
+                        <div class="accordion-inner"><span class="sideBarIcon logoutIcon"></span>Logout</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="accounts">
+     <div class="accordion-heading"> <a href="#collapseEight" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon accountsIcon"></span>Accounts <i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseEight">
+                        <div class="accordion-inner active"><span class="sideBarIcon amazonAccntIcon"></span>Amazon Account </div>
+                        <div class="accordion-inner"><span class="sideBarIcon hpIcon"></span> HP CSI Reports</div>
+                        <div class="accordion-inner"><span class="sideBarIcon hpIcon"></span> HP Cloud Account</div>
+                        <div class="accordion-inner"><span class="sideBarIcon rackcloudObjectIcon"></span> Rackspace Cloud Account</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="reports">
+     <div class="accordion-heading"> <a href="#collapseNine" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"><span class="sideBarIcon reportIcon"></span>Reports Builder</a> </div>
+     <div class="accordion-body collapse" id="collapseNine">
+                        <div class="accordion-inner"></div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="reqiusitions">
+     <div class="accordion-heading"> <a href="#collapseTen" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"><span class="sideBarIcon supportIcon"></span> Requisitions  <i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseTen">
+                        <div class="accordion-inner active"><span class="sideBarIcon requisitIcon"></span>Requisitions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.well --> 
+    </div>
+    <div id="xervmon-mainContent"> <span class="expdBtn"></span>
+        <div id="xervmon-dashboardContent" class="rightContent">
+           dashboard contents
+        </div>
+        <!--xervmon-dashboardContent ends--> 
+        
+        <div id="xervmon-manageContent" class="rightContent">
+           manage contents
+        </div>
+        <!--xervmon-manageContent ends--> 
+        
+        <div id="xervmon-cloudContent" class="rightContent">
+        cloud contents
+        </div>
+        <!--xervmon-cloudContent ends-->
+        
+        <div id="xervmon-toolsContent" class="rightContent">
+        tools contents
+        </div>
+        <!--xervmon-toolsContent ends-->
+        
+        <div id="xervmon-usersContent" class="rightContent">
+        users contents
+        </div>
+        <!--xervmon-usersContent ends-->
+        
+        <div id="xervmon-settingsContent" class="rightContent">
+        <ul class="topStrip">
+        </ul>
+       <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12" >
+                        <ul class="breadcrumb">
+                            <li class="active"><a href="#">Monitoring</a></li>
+                        </ul>
+                        <h3>Monitoring</h3>
+                        <div class="row-fluid filterBtn pluginsEnabled">
+                        <div class="pluginIcon icons pull-left"></div>
+                        <div class="pull-left"><div class="pull-left"><b>Plugins enabled</b> and does not need any configurations</div>
+                        <div class="serviceInfoHover pull-left tooltipQuest">
+                        <i class="serviceInfoIcon icons pull-left"></i>
+                        <div class="serviceInfoDetails">
+                        lorem ipsum Lorem ipsum dolor sit amet
+                        </div>
+                        </div>
+                        <ul class="nav nav-pills pull-left">
+                        <li><a href="#">CPU</a></li>
+                        <li><a href="#">Disk</a></li>
+                        <li><a href="#">Load</a></li>
+                        <li><a href="#">Memory</a></li>
+                        <li><a href="#">Processes</a></li>
+                        <li><a href="#">Swap</a></li>
+                        <li><a href="#">Uptime</a></li>
+                        <li><a href="#" class="active">Users</a></li>
+                        </ul>
+                        </div>
+                        
+                        </div>
+                        <div class="tabMain" id="monitoring">
+                            <div class="tabMainTop">
+                                <ul class="nav nav-tabs" id="xervmon-contentTab">
+                                    <li class="active"><a href="#xervmon-tab1" data-toggle="tab">Connections</a></li>
+                                    <li><a href="#xervmon-tab2" data-toggle="tab">Basic monitoring</a></li>
+                                    <li><a href="#xervmon-tab3" data-toggle="tab">databases</a></li>
+                                    <li><a href="#xervmon-tab4" data-toggle="tab">web servers</a></li>
+                                    <li><a href="#xervmon-tab5" data-toggle="tab">nagios</a></li>
+                                    <li><a href="#xervmon-tab6" data-toggle="tab">basic notification</a></li>
+                                    <li><a href="#xervmon-tab7" data-toggle="tab">monitoring preferences</a></li>
+                                    <li><a href="#xervmon-tab8" data-toggle="tab">basic thresholds</a></li>
+                                </ul>
+                               
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="xervmon-tab1">
+                                 <div class="contentBlock">
+                        <div class="contentBlockDetails">
+                       
+                        <form class="form-horizontal">
+                        <div class="control-group">
+                        <label class="control-label" for="">HTTP or HTTPS</label>
+                        <div class="controls">
+                        <select id="e1" required="" class="span6" data-placeholder="HTTP">
+                        <option></option> 
+                        <option>HTTP</option>
+ 						<option>HTTP</option>
+ 						<option>HTTPS</option>
+						<option>HTTPS</option>
+						<option>HTTPS</option>
+						</select>
+                        <div class="serviceInfoHover infoConfig selectSearchInfoConfig">
+                        <i class="serviceInfoIcon icons pull-left"></i>
+                        <div class="serviceInfoDetails">
+                        The name of the website for page titles and for use around the site.
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        <div class="control-group">
+                        <label class="control-label" for="">Monitoring Server IP</label>
+                        <div class="controls">
+                        <input class="span6" type="text" id="" required="" placeholder="ec2-184-72-85-41.compute-1.amazonaws.com">
+                        <div class="serviceInfoHover infoConfig">
+                        <i class="serviceInfoIcon icons pull-left"></i>
+                        <div class="serviceInfoDetails">
+                        The name of the website for page titles and for use around the site.
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        <div class="control-group">
+                        <label class="control-label" for="">Tenant User</label>
+                        <div class="controls">
+                        <input class="span6" type="text" id="" required="" placeholder="xervmon">
+                        <div class="serviceInfoHover infoConfig">
+                        <i class="serviceInfoIcon icons pull-left"></i>
+                        <div class="serviceInfoDetails">
+                        The name of the website for page titles and for use around the site.
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        <div class="control-group">
+                        <label class="control-label" for="">Tenant Password</label>
+                        <div class="controls">
+                        <input class="span6" type="password" id="" required="" placeholder="password">
+                        <div class="serviceInfoHover infoConfig">
+                        <i class="serviceInfoIcon icons pull-left"></i>
+                        <div class="serviceInfoDetails">
+                        The name of the website for page titles and for use around the site.
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        <div class="control-group">
+                        <div class="controls">
+                        <div class="rackspaceCheckbox">
+                        <span class="xervmon-inputCheckbox"><input type="checkbox" class="checkbox" id="xervmon-Rackspace"><label for="xervmon-Rackspace" class="chkbox">Please provide <i>Rackspace</i> Portal Username and <br/> Password to see how much you spend on Rackspace cloud</label></span>
+                        <div class="rackspaceHiddenConetnt">
+                        <div class="control-group">
+                        <label class="control-label" for="">User Name</label>
+                        <div class="controls">
+                        <input class="span6" type="text" id="" required="" placeholder="xervmon">
+                        </div>
+                        </div>
+                        <div class="control-group">
+                        <label class="control-label" for="">Password</label>
+                        <div class="controls">
+                        <input class="span6" type="password" id="" required="" placeholder="password">
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        <div class="control-group">
+                        <div class="controls">
+                        <button type="submit" class="btn btn-success xervmon-btn-big">save</button>
+                        </div>
+                        </div>
+                        </form>
+                        </div>
+                        </div>
+                                </div>
+                                <div class="tab-pane" id="xervmon-tab2">
+                                Basic monitoring contents
+                                </div>
+                                <div class="tab-pane" id="xervmon-tab3">
+                                databases contents
+                                </div>
+                                <div class="tab-pane" id="xervmon-tab4">
+                                web servers contents
+                                </div>
+                                <div class="tab-pane" id="xervmon-tab5">
+                                nagios contents
+                                </div>
+                                <div class="tab-pane" id="xervmon-tab6">
+                                basic contents
+                                </div>
+                                <div class="tab-pane" id="xervmon-tab7">
+                                monitoring preferences contents
+                                </div>
+                                <div class="tab-pane" id="xervmon-tab8">
+                                basic thresholds contents
+                                </div>
+                               
+                            </div>
+                        </div>
+                        <!--/span--> 
+                    </div>
+                    <!-- tabMain ends--> 
+                </div>
+            </div>
+        </div>
+        <!--xervmon-settingsContent ends-->
+        
+        <div id="xervmon-addonsContent" class="rightContent">
+        addons contents
+        </div>
+        <!--xervmon-addonsContent ends-->
+        
+        <div id="xervmon-profileContent" class="rightContent">
+        profile contents
+        </div>
+        <!--xervmon-profileContent ends-->
+        
+        <div id="xervmon-accountsContent" class="rightContent">
+        accounts contents
+        </div>
+        <!--xervmon-accountsContent ends-->
+        
+        <div id="xervmon-reportsContent" class="rightContent">
+        reports contents
+        </div>
+        <!--xervmon-reportsContent ends-->
+        
+        <div id="xervmon-reqiusitionsContent" class="rightContent">
+        requisitions contents
+        </div>
+        <!--xervmon-requisitionsContent ends-->
+        
+    </div>
+    <!-- mainContent ends-->
+   
+</div>
+<!--/row-->
+
+<footer>
+ <p>Copyright &copy; 2012 - 2013 Xervmon Inc. <span class="footerRight">Rendered in 0.2578 sec. using 17.61MB</span></p>
+ <p class="version">Version 2.2.1 Professional</p>
+</footer>
+
+<!-- Le javascript
+    ================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script src="js/script/jquery/jquery-1.9.1.min.js"></script> 
+<script src="js/script/jquery/jquery-migrate-1.1.1.min.js"></script>
+<script src="js/script/jquery/jquery-ui.min.js"></script> 
+<script src="js/script/bootstrap/bootstrap.js"></script> 
+<script src="js/script/script.js"></script> 
+<script src="js/script/jquery/select2.js"></script>
+<script>
+$(document).ready(function() {
+	 $("#e1").select2();
+	 });
+</script>
+
+ 
+
+
+
+
+</body>
+</html>

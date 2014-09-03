@@ -1,0 +1,74 @@
+.loginToolTip
+{
+	background: none repeat scroll 0 0 #333333;
+	border-radius: 20px 20px 20px 20px;
+	color: #FFFFFF;
+	cursor: pointer;
+	float: right;
+	height: 20px;
+	line-height: 20px;
+	margin-right: 10px;
+	margin-top: 10px;
+	text-align: center;
+	width: 20px;
+}
+.loginToolTip:hover
+{
+	color:#fff;
+}
+#aToolTip
+{
+	position: absolute;
+	display: none;
+	z-index: 50000;
+}
+#aToolTip .aToolTipContent
+{
+	position:relative;
+	margin:0;
+	text-align:center;
+	padding:0;
+}
+.defaultTheme
+{
+	background:#fff;
+	position: relative;
+	color:#339933;
+	margin:0;
+	border-radius: 5px 5px 5px 5px;
+	box-shadow: 2px 2px 2px 1px rgba(51, 51, 51, 0.2);
+	padding:5px 20px;
+	width:auto;
+}
+.defaultTheme .aToolTipContent
+{
+	color:#2798D2;
+}
+/*....bottom arrow in tooltip....*/
+
+.defaultTheme:after, .defaultTheme:before
+{
+	top: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+.defaultTheme:after
+{
+	border-color: rgba(136, 183, 213, 0);
+	border-top-color: #fff;
+	border-width: 7px;
+	left:70px;
+	margin-left: -44px;
+}
+.defaultTheme:before
+{
+	border-color: rgba(194, 225, 245, 0);
+	border-top-color: #ccc;
+	border-width: 9px;
+	left: 70px;
+	margin-left: -46px;
+}

@@ -1,0 +1,52 @@
+/* Help flat-ui work well with the rest of the site */
+
+.accordion-group .accordion-heading .sideBarIcon {
+    /* To kill flicker during transitions & animations */
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.accordion-toggle {
+    -webkit-backface-visibility: visible;
+    -ms-backface-visibility: visible;
+    backface-visibility: visible;
+}
+a {
+    text-decoration: none;
+    color: #0088cc;
+}
+.navbar-inverse .navbar-inner {
+    background: #1b1b1b;
+}
+.dropdown-menu {
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+#xervmon-mainContent ul.dropdown-menu a:hover,
+.xervmon-mainContent ul.dropdown-menu a:hover,
+.xervmon-mainContent ul.dropdown-menu a:active {
+    background: #0081c2;
+}
+.open > .dropdown-menu {
+    margin-top: 0px;
+}
+.dropdown-submenu:hover > .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+.daterangepicker.dropdown-menu, .colorpicker.dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    display: none;
+}
+/*.checkbox input, .radio input {
+    display: inline;
+}*/
+
+.checkbox .icons,
+.radio .icons {
+    background: transparent;
+}

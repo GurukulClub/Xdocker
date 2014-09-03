@@ -1,0 +1,156 @@
+/*
+ * Generated high contrast colors. See tools/gencolors.rb
+ */
+.h-col-1 {
+  stroke: red;
+  fill: red; }
+
+.h-col-2 {
+  stroke: #ff9900;
+  fill: #ff9900; }
+
+.h-col-3 {
+  stroke: #ccff00;
+  fill: #ccff00; }
+
+.h-col-4 {
+  stroke: #33ff00;
+  fill: #33ff00; }
+
+.h-col-5 {
+  stroke: #00ff66;
+  fill: #00ff66; }
+
+.h-col-6 {
+  stroke: aqua;
+  fill: aqua; }
+
+.h-col-7 {
+  stroke: #0066ff;
+  fill: #0066ff; }
+
+.h-col-8 {
+  stroke: #3300ff;
+  fill: #3300ff; }
+
+.h-col-9 {
+  stroke: #cc00ff;
+  fill: #cc00ff; }
+
+.h-col-10 {
+  stroke: #ff0099;
+  fill: #ff0099; }
+
+a {
+  color: #F90; }
+  a:hover {
+    color: #fc0;
+    text-decoration: none; }
+
+svg.tsview {
+  background: #111;
+  box-shadow: 0px 1px 4px 0px #000;
+  margin: 1em;
+  border-radius: 4px; }
+
+line.tick {
+  shape-rendering: crispEdges; }
+
+.area {
+  fill-opacity: 0.2; }
+
+.line {
+  fill: none;
+  stroke-width: 1px; }
+
+.axis {
+  shape-rendering: crispEdges; }
+
+.x.axis line {
+  stroke-opacity: 0.3; }
+.x.axis path {
+  display: none; }
+.x.axis .minor {
+  stroke-opacity: .5; }
+
+.y.axis line, .y.axis path {
+  fill: none;
+  stroke-opacity: 0.3; }
+
+.min-tag {
+  fill: red;
+  margin: 0 1em; }
+
+.max-tag {
+  fill: green;
+  margin: 0 1em; }
+
+.ts-color {
+  stroke: none; }
+
+text, tspan {
+  stroke: none;
+  fill: #fff; }
+
+/*
+ *  Gauge Label
+ */
+.glview {
+  text-align: center; }
+  .glview .metric .value {
+    font-size: 6em; }
+  .glview .label {
+    background: none; }
+
+/*
+ * Gauge Gadget
+ */
+.ggview {
+  text-align: center; }
+  .ggview .gauge circle.outer {
+    fill: #101010;
+    stroke: #000;
+    stroke-width: 0.5px; }
+  .ggview .gauge circle.inner {
+    fill: #050505;
+    stroke: #000;
+    stroke-width: 2px; }
+  .ggview .gauge circle.pointer-circle {
+    fill: #dd0000;
+    stroke: #000;
+    opacity: 1; }
+  .ggview .gauge line.small-tick {
+    stroke: red;
+    stroke-opacity: 0.3;
+    stroke-width: 1px; }
+  .ggview .gauge line.big-tick {
+    stroke: red;
+    stroke-opacity: 0.8;
+    stroke-width: 2px; }
+  .ggview .gauge text.label {
+    fill: red;
+    stroke-width: 0px;
+    fill-opacity: 0.4; }
+  .ggview .gauge text.limit {
+    fill: red;
+    stroke-width: 0px;
+    fill-opacity: 0.3; }
+  .ggview .gauge text.value {
+    fill: red;
+    stroke: red;
+    stroke-width: 1px; }
+  .ggview .gauge path.pointer {
+    fill: red;
+    stroke: #c63310;
+    fill-opacity: 0.5; }
+  .ggview .gauge path.band {
+    stroke: none;
+    fill-opacity: 0.9; }
+#dashboard {
+  padding-top: 6em; }
+/*
+
+
+
+
+ */

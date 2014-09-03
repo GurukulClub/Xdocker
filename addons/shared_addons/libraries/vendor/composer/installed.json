@@ -1,0 +1,230 @@
+[
+    {
+        "name": "toin0u/http-adapter",
+        "version": "1.0.3",
+        "version_normalized": "1.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/toin0u/HttpAdapter.git",
+            "reference": "29253948d446bc3afc29897ac67b4cd01f56cd10"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/toin0u/HttpAdapter/zipball/29253948d446bc3afc29897ac67b4cd01f56cd10",
+            "reference": "29253948d446bc3afc29897ac67b4cd01f56cd10",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "guzzle/guzzle": "@stable",
+            "kriswallsmith/buzz": "@stable",
+            "satooshi/php-coveralls": "~0.6",
+            "zendframework/zendframework": "~2.1"
+        },
+        "suggest": {
+            "guzzle/guzzle": "Enabling Guzzle allows you to use the GuzzleHttpAdapter",
+            "kriswallsmith/buzz": "Enabling Buzz allows you to use the BuzzHttpAdapter",
+            "zendframework/zendframework": "Enabling Zend Http allows you to use the ZendHttpAdapter"
+        },
+        "time": "2013-05-26 18:18:11",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "HttpAdapter": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Antoine Corcy",
+                "email": "contact@sbin.dk",
+                "homepage": "http://sbin.dk",
+                "role": "Developer"
+            }
+        ],
+        "description": "HttpAdapter PHP 5.3+ library",
+        "homepage": "https://github.com/toin0u/HttpAdapter",
+        "keywords": [
+            "adapter",
+            "http"
+        ]
+    },
+    {
+        "name": "symfony/console",
+        "version": "v2.4.0",
+        "version_normalized": "2.4.0.0",
+        "target-dir": "Symfony/Component/Console",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/Console.git",
+            "reference": "3c1496ae96d24ccc6c340fcc25f71d7a1ab4c12c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/Console/zipball/3c1496ae96d24ccc6c340fcc25f71d7a1ab4c12c",
+            "reference": "3c1496ae96d24ccc6c340fcc25f71d7a1ab4c12c",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "symfony/event-dispatcher": "~2.1"
+        },
+        "suggest": {
+            "symfony/event-dispatcher": ""
+        },
+        "time": "2013-11-27 09:10:40",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\Component\\Console\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Console Component",
+        "homepage": "http://symfony.com"
+    },
+    {
+        "name": "symfony/yaml",
+        "version": "v2.4.0",
+        "version_normalized": "2.4.0.0",
+        "target-dir": "Symfony/Component/Yaml",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/Yaml.git",
+            "reference": "1ae235a1b9d3ad3d9f3860ff20acc072df95b7f5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/Yaml/zipball/1ae235a1b9d3ad3d9f3860ff20acc072df95b7f5",
+            "reference": "1ae235a1b9d3ad3d9f3860ff20acc072df95b7f5",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "time": "2013-11-26 16:40:27",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\Component\\Yaml\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Yaml Component",
+        "homepage": "http://symfony.com"
+    },
+    {
+        "name": "toin0u/digitalocean",
+        "version": "1.4.1",
+        "version_normalized": "1.4.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/toin0u/DigitalOcean.git",
+            "reference": "b0c7a66f62b64ccaae11bfb172749c086ce4a73d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/toin0u/DigitalOcean/zipball/b0c7a66f62b64ccaae11bfb172749c086ce4a73d",
+            "reference": "b0c7a66f62b64ccaae11bfb172749c086ce4a73d",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0",
+            "symfony/console": "~2.3",
+            "symfony/yaml": "~2.3",
+            "toin0u/http-adapter": "~1.0"
+        },
+        "require-dev": {
+            "satooshi/php-coveralls": "~0.6"
+        },
+        "time": "2013-11-03 16:30:44",
+        "bin": [
+            "digitalocean"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "DigitalOcean": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Antoine Corcy",
+                "email": "contact@sbin.dk",
+                "homepage": "http://sbin.dk",
+                "role": "Developer"
+            }
+        ],
+        "description": "DigitalOcean API PHP 5.3+ library",
+        "homepage": "https://github.com/toin0u/DigitalOcean",
+        "keywords": [
+            "Cloud Hosting",
+            "SSD",
+            "api",
+            "digitalocean",
+            "vps"
+        ]
+    }
+]

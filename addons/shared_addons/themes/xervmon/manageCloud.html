@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>manage cloud</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Le styles -->
+<link href="css/bootstrap/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/common/style.css" rel="stylesheet">
+<link href="css/common/jquery-ui.css" rel="stylesheet">
+<link href="css/common/responsiveStyle.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <logo class="logoInside"><img src="img/logo-small.png"></logo>
+            <ul class="xervmon-topList">
+                <li class="xervmon-search">
+                    <input type="text" placeholder="Search">
+                    <i class="icon-search"></i></li>
+    <li class="xervmon-priority"><a href="#highPriority" class="blink">2 High priority actions</a></li>
+    <li><a href="#"><span class="hpIcon icons pull-left"></span></a></li>
+    <li class="xervmon-user">Welcome, ajith1<span class="settings"></span>
+     <div class="settingsDetail">
+      <ul>
+       <li><a href="#"><span class="editProfile"></span>Edit Profile</a></li>
+       <li><a href="#"><span class="logout"></span>Logout</a></li>
+      </ul>
+     </div>
+    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="xervmon-container" class="row-fluid">
+<button type="button" class="btn btn-navbar tabIcon" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+          </button>
+    <div id="xervmon-sidebar">
+        <div class=" sidebar-nav">
+            <div id="accordion2" class="accordion">
+                <div class="nav-header">MAIN MENU</div>
+                <div class="accordion-group" id="dashboard">
+     <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFirst"><span class="sideBarIcon dashboardIcon"></span> Dashboard</i> </a> </div>
+     <div class="accordion-body collapse" id="collapseFirst">
+                        <div class="accordion-inner"></div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="manage">
+     <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"> <span class="sideBarIcon manageIcon"></span>Manage<i class="arrow"></i> </a> </div>
+                    <div id="collapseOne" class="accordion-body collapse">
+                        <div class="accordion-inner active"><span class="sideBarIcon manageBuisenessIcon"></span>Business Metadata </div>
+                        <div class="accordion-inner"><span class="sideBarIcon cheifClientIcon"></span>Chef Client</div>
+                        <div class="accordion-inner "><span class="sideBarIcon commentsIcon"></span>Comments</div>
+                        <div class="accordion-inner"><span class="sideBarIcon manageenterpriseIcon"></span>Enterprise App Bazaar</div>
+                        <div class="accordion-inner"><span class="sideBarIcon filesIcon"></span>Files</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="cloud">
+     <div class="accordion-heading"> <a href="#collapseTwo" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon cloudIcon"></span>Cloud<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseTwo">
+                        <div class="accordion-inner active"><span class="sideBarIcon deployPlannerIcon"></span>Deployment Planner</div>
+                        <div class="accordion-inner"><span class="sideBarIcon emailTemplateIcon"></span>Email Templates</div>
+                        <div class="accordion-inner"><span class="sideBarIcon manageCloudIcon"></span>Manage Cloud</div>
+                        <div class="accordion-inner"><span class="sideBarIcon monitorIcon"></span>Monitoring</div>
+                        <div class="accordion-inner"><span class="sideBarIcon rackcloudObjectIcon"></span>Rackcloud ObjectStorage</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="tools">
+     <div class="accordion-heading"> <a href="#collapseThree" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon toolIcon"></span>Tools<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseThree">
+                        <div class="accordion-inner active"><span class="sideBarIcon apiMngmtIcon"></span> API Management</div>
+                        <div class="accordion-inner"><span class="sideBarIcon maintenanceIcon"></span> Maintenance</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="users">
+     <div class="accordion-heading"> <a href="#collapseFour" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon usersIcon"></span>Users<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseFour">
+                        <div class="accordion-inner active"><span class="sideBarIcon groupsIcon"></span>Groups</div>
+                        <div class="accordion-inner"><span class="sideBarIcon permissionsIcon"></span>Permissions</div>
+                        <div class="accordion-inner"><span class="sideBarIcon usersIconNew"></span>Users</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="settings">
+     <div class="accordion-heading"> <a href="#collapseFive" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon settingsIcon"></span>Settings</a> </div>
+     <div class="accordion-body collapse" id="collapseFive">
+                        <div class="accordion-inner"></div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="addons">
+     <div class="accordion-heading"> <a href="#collapseSix" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon addonsIcon"></span>Add-ons<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseSix">
+                        <div class="accordion-inner active"><span class="sideBarIcon modulesIcon"></span>Modules</div>
+                        <div class="accordion-inner"><span class="sideBarIcon themesIcon"></span>Themes</div>
+                        <div class="accordion-inner"><span class="sideBarIcon pluginsIcon"></span>Plugins</div>
+                        <div class="accordion-inner"><span class="sideBarIcon widgetsIcon"></span>Widgets</div>
+                        <div class="accordion-inner"><span class="sideBarIcon fieldTypesIcon"></span>Field Types</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="profile">
+     <div class="accordion-heading"> <a href="#collapseSeven" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon profileIcon"></span>Profile<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseSeven">
+                        <div class="accordion-inner active"><span class="sideBarIcon editProfileIcon"></span>Edit profile</div>
+                        <div class="accordion-inner"><span class="sideBarIcon logoutIcon"></span>Logout</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="accounts">
+     <div class="accordion-heading"> <a href="#collapseEight" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon accountsIcon"></span>Accounts <i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseEight">
+                        <div class="accordion-inner active"><span class="sideBarIcon amazonAccntIcon"></span>Amazon Account </div>
+                        <div class="accordion-inner"><span class="sideBarIcon hpIcon"></span> HP CSI Reports</div>
+                        <div class="accordion-inner"><span class="sideBarIcon hpIcon"></span> HP Cloud Account</div>
+                        <div class="accordion-inner"><span class="sideBarIcon rackcloudObjectIcon"></span> Rackspace Cloud Account</div>
+                    </div>
+                </div>
+                <div class="accordion-group selectedAccordian" id="reports">
+     <div class="accordion-heading"> <a href="#collapseNine" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"><span class="sideBarIcon reportIcon"></span>Reports Builder</a> </div>
+     <div class="accordion-body collapse" id="collapseNine">
+                        <div class="accordion-inner"></div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="reqiusitions">
+     <div class="accordion-heading"> <a href="#collapseTen" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"><span class="sideBarIcon supportIcon"></span> Requisitions  <i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseTen">
+                        <div class="accordion-inner active"><span class="sideBarIcon requisitIcon"></span>Requisitions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.well --> 
+    </div>
+    <div id="xervmon-mainContent"> <span class="expdBtn"></span>
+        <div id="xervmon-dashboardContent" class="rightContent">
+           dashboard contents
+        </div>
+        <!--xervmon-dashboardContent ends--> 
+        
+        <div id="xervmon-manageContent" class="rightContent">
+           manage contents
+        </div>
+        <!--xervmon-manageContent ends--> 
+        
+        <div id="xervmon-cloudContent" class="rightContent">
+        cloud contents
+        </div>
+        <!--xervmon-cloudContent ends-->
+        
+        <div id="xervmon-toolsContent" class="rightContent">
+        tools contents
+        </div>
+        <!--xervmon-toolsContent ends-->
+        
+        <div id="xervmon-usersContent" class="rightContent">
+        users contents
+        </div>
+        <!--xervmon-usersContent ends-->
+        
+        <div id="xervmon-settingsContent" class="rightContent">
+        settings contents
+        </div>
+        <!--xervmon-settingsContent ends-->
+        
+        <div id="xervmon-addonsContent" class="rightContent">
+        addons contents
+        </div>
+        <!--xervmon-addonsContent ends-->
+        
+        <div id="xervmon-profileContent" class="rightContent">
+        profile contents
+        </div>
+        <!--xervmon-profileContent ends-->
+        
+        <div id="xervmon-accountsContent" class="rightContent">
+        accounts contents
+        </div>
+        <!--xervmon-accountsContent ends-->
+        
+        <div id="xervmon-reportsContent" class="rightContent">
+        <ul class="topStrip">
+            <li class="active">Manage Cloud<span class="divider"></span>
+            <ul class="subList"><li class="active">Rackspace new</li><li>rackspace I gen</li><li>rackaccount</li><li>Rackspace II Generation </li><li>Amazon Account</li></ul>
+            </li>
+            <li class="normal">LIST OF RACKSPACE CLOUD ACCOUNTS<span class="divider"></span>
+             <ul class="subList"><li>Estimated Summary</li><li>Billing Summary</li><li>Spend Trend</li></ul></li>
+            <li class="normal">ADD RACKSPACE CLOUD ACCOUNT<span class="divider"></span>
+            <ul class="subList"><li>HP Summary</li><li>SPEND SERVERS/STORAGE/NETWORK</li><li>Charge back</li></ul>
+            </li>
+            <li class="normal">MANAGE SECURITY GROUPS / KEYS<span class="divider"></span></li>
+            </ul>
+            <div class="subListMain"></div>
+        <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12" >
+                        <ul class="breadcrumb">
+                          <li><a href="#">Cloud</a><span class="divider">-</span></li>
+                          <li class="active"><a href="#">Manage Cloud</a></li>
+                        </ul>
+                        <h3>Manage Cloud</h3>
+                        <div class="contentBlock">
+                        <h4><div class="leftHead rackspaceTab">Rackspace New</div>
+                       <ul class="subTabs"><li><a href="#" rel="cloudServerContent">CloudServer</a></li><li><a href="#" rel="volumeContent">Volume</a></li><li><a href="#" rel="loadBalancerContent">Load Balancer</a></li><li><a href="#" rel="cloudDatabaseContent">Cloud Database</a></li></ul>
+                        <div class="serviceInfoHover pull-right tooltipQuest">
+                        <i class="serviceInfoIcon icons pull-left"></i>
+                        <div class="serviceInfoDetails">
+                        lorem ipsum Lorem ipsum dolor sit amet
+                        </div>
+                        </div>
+                        </h4>
+                        <div class="contentBlockDetails manageCloud">
+   <div id="rackspaceContent">                   
+  <h5>Service Catalog</h5>                   
+  <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="TableContainerTwo">
+  <thead>
+   <tr>
+    <th>Service Name</th>
+    <th>Type</th>
+    <th>Region</th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr >
+    <td>cloudFiles</td>
+    <td>object-store</td>
+    <td>DFW SYD ORD IAD</td>
+   </tr>
+   <tr >
+    <td>cloudFilesCDN</td>
+    <td>rax:object-cdn</td>
+    <td>DFW SYD ORD IAD</td>
+   </tr>
+   <tr >
+    <td>cloudBlockStorage</td>
+    <td>volume</td>
+    <td>SYD ORD DFW IAD</td>
+   </tr>
+   <tr ><td>cloudServersOpenStack</td>
+    <td>compute</td>
+    <td>SYD DFW ORD IAD</td>
+   </tr>
+   <tr >
+    <td>cloudDatabases</td>
+    <td>rax:database</td>
+    <td>SYD DFW ORD IAD</td>
+   </tr>
+   <tr >
+    <td>cloudLoadBalancers</td>
+    <td>rax:load-balancer</td>
+    <td>SYD ORD DFW IAD</td>
+   </tr>
+   <tr >
+    <td>cloudFiles</td>
+    <td>object-store</td>
+    <td>DFW SYD ORD IAD</td>
+   </tr>
+   <tr >
+    <td>cloudFilesCDN</td>
+    <td>rax:object-cdn</td>
+    <td>DFW SYD ORD IAD</td>
+   </tr>
+   <tr >
+    <td>cloudBlockStorage</td>
+    <td>volume</td>
+    <td>SYD ORD DFW IAD</td>
+   </tr>
+   <tr ><td>cloudServersOpenStack</td>
+    <td>compute</td>
+    <td>SYD DFW ORD IAD</td>
+   </tr>
+   <tr >
+    <td>cloudDatabases</td>
+    <td>rax:database</td>
+    <td>SYD DFW ORD IAD</td>
+   </tr>
+   <tr >
+    <td>cloudLoadBalancers</td>
+    <td>rax:load-balancer</td>
+    <td>SYD ORD DFW IAD</td>
+   </tr>
+   <tr >
+    <td>cloudFiles</td>
+    <td>object-store</td>
+    <td>DFW SYD ORD IAD</td>
+   </tr>
+   <tr >
+    <td>cloudFilesCDN</td>
+    <td>rax:object-cdn</td>
+    <td>DFW SYD ORD IAD</td>
+   </tr>
+   <tr >
+    <td>cloudBlockStorage</td>
+    <td>volume</td>
+    <td>SYD ORD DFW IAD</td>
+   </tr>
+   <tr ><td>cloudServersOpenStack</td>
+    <td>compute</td>
+    <td>SYD DFW ORD IAD</td>
+   </tr>
+   <tr >
+    <td>cloudDatabases</td>
+    <td>rax:database</td>
+    <td>SYD DFW ORD IAD</td>
+   </tr>
+   <tr >
+    <td>cloudLoadBalancers</td>
+    <td>rax:load-balancer</td>
+    <td>SYD ORD DFW IAD</td>
+   </tr>
+  </tbody>
+ </table>
+ <div class="tableBottomRow"></div>
+   
+   <h5>List of Servers<a class="btn pull-right btnXerv posConfig">Launch Server</a></h5>                       
+  <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="TableContainerThree">
+  <thead>
+   <tr>
+    <th width="50%">Name</th>
+    <th>ID</th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr >
+    <td>newcollectd_mon</td>
+    <td>i-8c7708ef</td>
+   </tr>
+   <tr >
+    <td>xervmon-beanstalk</td>
+    <td>i-27098658</td>
+   </tr>
+   <tr >
+    <td>Crawler-QA</td>
+    <td>i-213d145e</td>
+   </tr>
+   <tr >
+    <td>newcollectd_mon</td>
+    <td>i-8c7708ef</td>
+   </tr>
+   <tr >
+    <td>xervmon-beanstalk</td>
+    <td>i-27098658</td>
+   </tr>
+   <tr >
+    <td>Crawler-QA</td>
+    <td>i-213d145e</td>
+   </tr>
+   <tr >
+    <td>newcollectd_mon</td>
+    <td>i-8c7708ef</td>
+   </tr>
+   <tr >
+    <td>xervmon-beanstalk</td>
+    <td>i-27098658</td>
+   </tr>
+   <tr >
+    <td>Crawler-QA</td>
+    <td>i-213d145e</td>
+   </tr>
+   <tr >
+    <td>newcollectd_mon</td>
+    <td>i-8c7708ef</td>
+   </tr>
+   <tr >
+    <td>xervmon-beanstalk</td>
+    <td>i-27098658</td>
+   </tr>
+   <tr >
+    <td>Crawler-QA</td>
+    <td>i-213d145e</td>
+   </tr>
+   <tr >
+    <td>newcollectd_mon</td>
+    <td>i-8c7708ef</td>
+   </tr>
+   <tr >
+    <td>xervmon-beanstalk</td>
+    <td>i-27098658</td>
+   </tr>
+   <tr >
+    <td>Crawler-QA</td>
+    <td>i-213d145e</td>
+   </tr>
+   <tr >
+    <td>newcollectd_mon</td>
+    <td>i-8c7708ef</td>
+   </tr>
+   <tr >
+    <td>xervmon-beanstalk</td>
+    <td>i-27098658</td>
+   </tr>
+   <tr >
+    <td>Crawler-QA</td>
+    <td>i-213d145e</td>
+   </tr>
+  </tbody>
+ </table>
+ <div class="tableBottomRow"></div>
+   
+   <h5>List of Volumes<a class="btn pull-right btnXerv posConfig">Create Volume</a></h5>                       
+  <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="TableContainerFour">
+  <thead>
+   <tr>
+    <th width="50%">Name</th>
+    <th>ID</th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr >
+    <td>Volumn 1</td>
+    <td>5a43e341-7d95-4b6c-a23d-5277d18c5162</td>
+   </tr>
+   <tr >
+    <td>Volumn 1</td>
+    <td>5a43e341-7d95-4b6c-a23d-5277d18c5162</td>
+   </tr>
+   <tr >
+    <td>Volumn 1</td>
+    <td>5a43e341-7d95-4b6c-a23d-5277d18c5162</td>
+   </tr>
+   <tr >
+    <td>Volumn 1</td>
+    <td>5a43e341-7d95-4b6c-a23d-5277d18c5162</td>
+   </tr>
+   <tr >
+    <td>Volumn 1</td>
+    <td>5a43e341-7d95-4b6c-a23d-5277d18c5162</td>
+   </tr>
+   <tr >
+    <td>Volumn 1</td>
+    <td>5a43e341-7d95-4b6c-a23d-5277d18c5162</td>
+   </tr>
+   <tr >
+    <td>Volumn 1</td>
+    <td>5a43e341-7d95-4b6c-a23d-5277d18c5162</td>
+   </tr>
+   <tr >
+    <td>Volumn 1</td>
+    <td>5a43e341-7d95-4b6c-a23d-5277d18c5162</td>
+   </tr>
+   <tr >
+    <td>Volumn 1</td>
+    <td>5a43e341-7d95-4b6c-a23d-5277d18c5162</td>
+   </tr>
+   <tr >
+    <td>Volumn 1</td>
+    <td>5a43e341-7d95-4b6c-a23d-5277d18c5162</td>
+   </tr>
+   <tr >
+    <td>Volumn 1</td>
+    <td>5a43e341-7d95-4b6c-a23d-5277d18c5162</td>
+   </tr>
+   <tr >
+    <td>Volumn 1</td>
+    <td>5a43e341-7d95-4b6c-a23d-5277d18c5162</td>
+   </tr>
+   <tr >
+    <td>Volumn 1</td>
+    <td>5a43e341-7d95-4b6c-a23d-5277d18c5162</td>
+   </tr>
+   <tr >
+    <td>Volumn 1</td>
+    <td>5a43e341-7d95-4b6c-a23d-5277d18c5162</td>
+   </tr>
+   <tr >
+    <td>Volumn 1</td>
+    <td>5a43e341-7d95-4b6c-a23d-5277d18c5162</td>
+   </tr>
+  <tr >
+    <td>Volumn 1</td>
+    <td>5a43e341-7d95-4b6c-a23d-5277d18c5162</td>
+   </tr>
+   <tr >
+    <td>Volumn 1</td>
+    <td>5a43e341-7d95-4b6c-a23d-5277d18c5162</td>
+   </tr>
+   <tr >
+    <td>Volumn 1</td>
+    <td>5a43e341-7d95-4b6c-a23d-5277d18c5162</td>
+   </tr>
+  </tbody>
+ </table>
+ <div class="tableBottomRow"></div>
+                        </div><!--rackspaceContent ends -->
+                        
+                        <div id="cloudServerContent" class="subTabsContent">  
+                        <h5>Server Details</h5>
+  <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="TableContainerFive">
+  <thead>
+   <tr>
+    <th>ServerId</th>
+    <th>ServerName</th>
+    <th>Flavor</th>
+    <th>Private IP</th>
+    <th>Public IP </th>
+    <th>OS</th>
+    <th>Monthly Cost </th>
+    <th>Status</th>
+    <th>Actions</th>
+   </tr>
+  </thead>
+ <tbody>
+   <tr >
+    <td>2085476</td>
+    <td>xervmon-crawl</td>
+    <td>2GB server-
+2048-80 GB</td>
+    <td>10.183.170.125</td>
+    <td>50.57.52.74</td>
+    <td>Ubuntu 10.04 LTS
+CloudServer 1-gen</td>
+    <td>$87.6+ $0.12/GB</td>
+    <td><span class="statusNew"></span>Active</td>
+    <td class="textAlignCenter"><a href="#"><span class="viewDetail"></span></a><a href="#"><span class="delete"></span></a><a href="#"><span class="resize"></span></a></td>
+   </tr>
+   <tr >
+    <td>2085476</td>
+    <td>xervmon-crawl</td>
+    <td>2GB server-
+2048-80 GB</td>
+    <td>10.183.170.125</td>
+    <td>50.57.52.74</td>
+    <td>Ubuntu 10.04 LTS
+CloudServer 1-gen</td>
+    <td>$87.6+ $0.12/GB</td>
+    <td><span class="statusNew"></span>Active</td>
+    <td class="textAlignCenter"><a href="#"><span class="rebootIcon"></span></a><a href="#"><span class="deleteIcon"></span></a></td>
+   </tr>
+   <tr >
+    <td>2085476</td>
+    <td>xervmon-crawl</td>
+    <td>2GB server-
+2048-80 GB</td>
+    <td>10.183.170.125</td>
+    <td>50.57.52.74</td>
+    <td>Ubuntu 10.04 LTS
+CloudServer 1-gen</td>
+   <td>$87.6+ $0.12/GB</td>
+    <td><span class="statusNew"></span>Active</td>
+    <td class="textAlignCenter"><a href="#"><span class="edit"></span></a><a href="#"><span class="delete"></span></a></td>
+   </tr>
+   <tr >
+    <td>2085476</td>
+    <td>xervmon-crawl</td>
+    <td>2GB server-
+2048-80 GB</td>
+    <td>10.183.170.125</td>
+    <td>50.57.52.74</td>
+    <td>Ubuntu 10.04 LTS
+CloudServer 1-gen</td>
+    <td>$87.6+ $0.12/GB</td>
+    <td><span class="statusNew"></span>Active</td>
+    <td class="textAlignCenter"><a href="#"><span class="edit"></span></a><a href="#"><span class="delete"></span></a></td>
+   </tr>
+   <tr >
+    <td>2085476</td>
+    <td>xervmon-crawl</td>
+    <td>2GB server-
+2048-80 GB</td>
+    <td>10.183.170.125</td>
+    <td>50.57.52.74</td>
+    <td>Ubuntu 10.04 LTS
+CloudServer 1-gen</td>
+    <td>$87.6+ $0.12/GB</td>
+    <td><span class="statusNew"></span>Active</td>
+    <td class="textAlignCenter">
+    <a href="#"><span class="edit"></span></a>
+    <a href="#"><span class="delete"></span></a>
+    </td>
+   </tr>
+   </tbody>
+  </table>
+   <div class="tableBottomRow"></div>
+                        </div><!--cloudServerContent ends -->
+                        
+                        <div id="volumeContent" class="subTabsContent">  
+                        volume contents
+                        </div><!--volumeContent ends -->
+                        
+                        <div id="loadBalancerContent" class="subTabsContent">  
+                        loadBalancerContent
+                        </div><!--loadBalancerContent ends -->
+                        
+                        <div id="cloudDatabaseContent" class="subTabsContent"> 
+                        cloudDatabaseContent 
+                        </div><!--cloudDatabaseContent ends -->
+                        
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            </div>
+        <!--xervmon-reportsContent ends-->
+        
+        <div id="xervmon-reqiusitionsContent" class="rightContent">
+        requisitions contents
+        </div>
+        <!--xervmon-requisitionsContent ends-->
+        
+    </div>
+    <!-- mainContent ends-->
+   
+</div>
+<!--/row-->
+
+<footer>
+ <p>Copyright &copy; 2012 - 2013 Xervmon Inc. <span class="footerRight">Rendered in 0.2578 sec. using 17.61MB</span></p>
+ <p class="version">Version 2.2.1 Professional</p>
+</footer>
+
+<!-- Le javascript
+    ================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script src="js/script/jquery/jquery-1.9.1.min.js"></script> 
+<script src="js/script/jquery/jquery-migrate-1.1.1.min.js"></script>
+<script src="js/script/jquery/jquery-ui.min.js"></script> 
+<script src="js/script/jquery/jquery.dataTables.min.js"></script> 
+<script src="js/script/jquery/flotr2.min.js"></script> 
+<script src="js/script/bootstrap/bootstrap.js"></script> 
+<script src="js/script/script.js"></script> 
+
+
+ 
+
+<script>
+ $(document).ready(function() {
+
+	 var oTable2 = $('#TableContainerTwo').dataTable({"iDisplayLength": 5,"sPaginationType": "full_numbers"});
+	  oTable2.fnSort( [ [1,'asc'] ] );
+	 
+	
+	 $('#TableContainerTwo_wrapper .showmoreBtn').live('click', function show() {
+        oSettings2 = oTable2.fnSettings();
+        oSettings2._iDisplayLength = -1;
+        oTable2.fnDraw();
+		 $(this).addClass('hideBtn');
+    });
+	$('#TableContainerTwo_wrapper .hideBtn').live('click', function hide() {
+        oSettings2._iDisplayLength =5;
+        oTable2.fnDraw();
+		$(this).removeClass('hideBtn');
+	});
+	
+		 var oTable3 = $('#TableContainerThree').dataTable({"iDisplayLength": 5,"sPaginationType": "full_numbers"});
+	  oTable3.fnSort( [ [1,'asc'] ] );
+	
+	 $('#TableContainerThree_wrapper .showmoreBtn').live('click', function show() {
+        oSettings3 = oTable3.fnSettings();
+        oSettings3._iDisplayLength = -1;
+        oTable3.fnDraw();
+		 $(this).addClass('hideBtn');
+    });
+	$('#TableContainerThree_wrapper .hideBtn').live('click', function hide() {
+        oSettings3._iDisplayLength =5;
+        oTable3.fnDraw();
+		$(this).removeClass('hideBtn');
+	});
+	
+		 var oTable4 = $('#TableContainerFour').dataTable({"iDisplayLength": 5,"sPaginationType": "full_numbers"});
+	  oTable4.fnSort( [ [1,'asc'] ] );
+
+	 	 $('#TableContainerFour_wrapper .showmoreBtn').live('click', function show() {
+        oSettings4 = oTable4.fnSettings();
+        oSettings4._iDisplayLength = -1;
+        oTable4.fnDraw();
+		 $(this).addClass('hideBtn');
+    });
+	$('#TableContainerFour_wrapper .hideBtn').live('click', function hide() {
+        oSettings4._iDisplayLength =5;
+        oTable4.fnDraw();
+		$(this).removeClass('hideBtn');
+	});
+	 var oTable5 = $('#TableContainerFive').dataTable({"iDisplayLength": 3,"sPaginationType": "full_numbers"});
+	  oTable5.fnSort( [ [1,'asc'] ] );
+
+	 	 $('#TableContainerFive_wrapper .showmoreBtn').live('click', function show() {
+        oSettings5 = oTable5.fnSettings();
+        oSettings5._iDisplayLength = -1;
+        oTable5.fnDraw();
+		 $(this).addClass('hideBtn');
+    });
+	$('#TableContainerFive_wrapper .hideBtn').live('click', function hide() {
+        oSettings5._iDisplayLength =3;
+        oTable5.fnDraw();
+		$(this).removeClass('hideBtn');
+	});
+       
+	   $("#TableContainerTwo_wrapper").append('<div class="showmoreBtn showmoreBtnPosConfig"></div>');
+	   $("#TableContainerThree_wrapper").append('<div class="showmoreBtn showmoreBtnPosConfig"></div>');
+	   $("#TableContainerFour_wrapper").append('<div class="showmoreBtn showmoreBtnPosConfig"></div>');
+	   $("#TableContainerFive_wrapper").append('<div class="showmoreBtn showmoreBtnPosConfig"></div>');
+	   
+	   $(".paginate_button_disabled.first,.paginate_button.next,.paginate_button_disabled.previous,.paginate_button.last").text("");
+ });
+ 
+
+ 
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+/* Large desktop & notebooks */
+
+@media (max-width: 1280px) {
+    #locations,
+    #cloudActivity,
+    #deploymentPlan,
+    #overview {
+        margin: 3px 0px 3px 5px;
+    }
+}
+/* General styles for phones and tablets */
+
+@media (max-width: 979px) {
+    #xervmon-sidebar {
+        width: 100%;
+        position: relative;
+    }
+    #xervmon-mainContent {
+        margin-left: 0 !important;
+    }
+    #xervmon-mainContent .expdBtn {
+        display: none;
+    }
+    .sidebar-nav .accordion-group .accordion-body .accordion-inner {
+        padding-left: 43px;
+    }
+    #locations,
+    #cloudActivity,
+    #deploymentPlan,
+    #overview {
+        margin: 3px 0px 3px 5px;
+    }
+    #accordion2 .mouseOverEffect {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+}
+/* Landscape phones and down */
+
+@media (max-width: 767px) {}
+/* Landscape phones and down */
+
+@media (max-width: 600px) {
+    .tabMain .tab-content {
+        width: 100%;
+    }
+    #launchPad,
+    #requisitAlerts,
+    #locations,
+    #cloudActivity,
+    #deploymentPlan,
+    #overview {
+        width: 100%;
+        margin: 3px 3px 3px 0;
+    }
+    #requisitAlerts .sDashboardWidgetContent {
+        padding: 0;
+    }
+    #TableContainer thead th:nth-child(3),
+    #TableContainer tr td:nth-child(3),
+    #TableContainer thead th:nth-child(4),
+    #TableContainer tr td:nth-child(4),
+    #TableContainer thead th:nth-child(6),
+    #TableContainer tr td:nth-child(6),
+    #TableContainer thead th:nth-child(7),
+    #TableContainer tr td:nth-child(7) {
+        display: none;
+    }
+    .requistAlertContents .showmoreBtn,
+    .requistAlertContents .hideBtn {
+        bottom: -3px;
+    }
+    .dataTables_paginate {
+        bottom: -32px;
+    }
+}
+/* Landscape phones and down */
+
+@media (max-width: 480px) {
+    .addNewWidgetBtn {
+        position: relative;
+    }
+}
