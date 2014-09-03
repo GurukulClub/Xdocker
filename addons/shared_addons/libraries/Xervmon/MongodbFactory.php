@@ -1,5 +1,4 @@
-<?php
-defined('BASE') or exit('Direct script access is not allowed!');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 
 abstract class MongoDBFactory
 {
