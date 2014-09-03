@@ -109,7 +109,7 @@ echo ' <a href="?page=' . $next . '">Next</a>';
  
 	 */
 	
-	public function getData($collection, $where = array(), $limit = 25, $offset = 0)
+	public function getData($currentUser, $collection, $where = array(), $limit = 25, $offset = 0)
 	{
 		if($currentUser->group == 'admin')
 		{
