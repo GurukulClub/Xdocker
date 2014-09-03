@@ -12,18 +12,25 @@ class XervmonMongoQB
 	public static $_customerIdentifier;
 	private static $loadConfig = false;
 	
+	static $config = array(
+    'dsn'  =>  'mongodb://xervmon:xervmon2763man@192.241.230.33:27017/xdocker',
+    'persist'   =>  true,
+    'persist_key'   =>  'mongoqb',
+    'replica_set'   =>  false,
+    'query_safety'  =>  'safe',
+	);
+	
 	private static function init()
 	{
 		self::$_ci = ci();
 		if (self::$_ci)
 		{
 			log_message('debug', 'Loading Configuration Data for MongoQB :' . self::$_config_file);
-			$config = self::$_ci ->config->load(self::$_config_file);
+			$config = self::$config;
 			
-			log_message('debug', 'Configuration...'. json_encode(self::$_ci->config->item('mongoqb')));
 			try
 			{
-				self::$mongoQB = new \MongoQB\Builder(self::$_ci->config->item('mongoqb'));
+				self::$mongoQB = new \MongoQB\Builder($config);
 				self::$_customerIdentifier = trim($config['customer_identifier']);
 				self::$loadConfig = true;
 				log_message('debug', 'Connected to MongoQB...'. json_encode($config));
