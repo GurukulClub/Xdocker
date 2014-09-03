@@ -117,9 +117,6 @@ class Admin extends Admin_Controller
 		
 	}
 	
-	public function getFields($provider)
-	{
-		
-	}
+	
 
 }

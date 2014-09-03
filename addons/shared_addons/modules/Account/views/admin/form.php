@@ -39,7 +39,7 @@
 									<div class="control-group">
 										<label class="control-label" for="cloudProvider"><?php echo lang('Account:cloudProvider') ?><span>*</span></label>
 										<div class="controls">
-											<select id="cloudProvider" name="cloudProvider" class="" >
+											<select id="cloudProvider" name="cloudProvider" class="cloudProvider" >
 												<?php
 												$cloudProviders = $post->cloudProviders;
 													foreach($cloudProviders as $key => $value)
@@ -59,7 +59,9 @@
 										</div>
 									</div>
 
-							
+								<div class="populateFields">
+								
+								</div>
 								<div class="control-group">
 														<div class="controls">
 															<button id="Account_save" name="Account_save" class="btn btn-success xervmon-btn-big"><?= lang('Account:save') ?></button>
@@ -90,3 +92,28 @@ h4 {
 	display: -ms-flexbox;
 }
 </style>
+<script>
+	$(document ).ready(function() {
+  		// Handler for .ready() called.
+  		$(".cloudProvider").change(function() {
+  		$('.populateFields').html(populateFields($(".cloudProvider").val()));
+	});
+	});
+	
+	populateFields = function (cloudProvider)
+	{
+		return 
+		'<div class="control-group"> '+
+				'<label class="control-label" for="title">API Access Key<span>*</span></label> '+
+				'<div class="controls">'+
+					'<input type="text" name="apiAccessKey" id="apiAccessKey" value=""  class="input-xlarge">'  +
+				'</div>' +
+		'</div>' +
+		'<div class="control-group"> '+
+				'<label class="control-label" for="title">Secret Access Key<span>*</span></label> '+
+				'<div class="controls">'+
+					'<input type="text" name="secretAccessKey" id="secretAccessKey" value=""  class="input-xlarge">'  +
+				'</div>' +
+		'</div>'		
+	}
+</script>
