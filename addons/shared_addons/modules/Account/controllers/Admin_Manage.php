@@ -78,5 +78,15 @@ class Accounts_Admin extends Admin_Controller
 		role_or_die('account', 'delete_account');
 
 	}
+	
+	public function saveData()
+	{
+		
+	}
+	
+	public function getFields($provider)
+	{
+		
+	}
 
 }

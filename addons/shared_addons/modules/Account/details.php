@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
- * Amazon Accounts module
+ * Accounts module
  *
  * @author  Xervmon Dev Team
  * @package Xervmon\Core\Modules\AmazonAccount
