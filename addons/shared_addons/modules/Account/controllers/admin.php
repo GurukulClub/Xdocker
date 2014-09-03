@@ -76,7 +76,7 @@ class Admin extends Admin_Controller
 		role_or_die('account', 'add_account');
 		$post = new stdClass();
 		$post -> name = '';
-		$post -> cloudProvider = config_item('cloudProviders');
+		$post -> cloudProviders = config_item('cloudProviders');
 		
 		$this -> template -> title($this -> module_details['name'], lang('Account:create_title')) -> set('post', $post) -> append_css('common/form.css') -> append_css('common/style.css') -> append_css('common/select2.css') ->  append_js('jquery/jquery.validate.js') -> append_js('script/jquery/select2.js') -> append_js('script/script.js') -> append_js('jquery/jquery.validate.unobtrusive.js') -> append_js('jquery/jquery.validate.bootstrap.js') -> append_js('module::account.js') -> build('admin/form');
 		
