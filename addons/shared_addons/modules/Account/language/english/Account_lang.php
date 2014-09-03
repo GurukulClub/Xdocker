@@ -21,6 +21,7 @@ $lang['Account:already_exist_error']  			= 'An Account with this URL already exi
 
 $lang['Account:title']  			= 'Name your account';
 $lang['Account:name']  			= 'Name your account';
+$lang['Account:cloudProvider']  = 'Cloud Provider';
 $lang['Account:account_id']  	 	= 'Account Id';
 $lang['Account:api_key']  			= 'API Key';
 $lang['Account:secret_key']  		= 'Secret Key';

@@ -37,11 +37,12 @@
 										</div>
 
 									<div class="control-group">
-										<label class="control-label" for="api_key"><?php echo lang('Account:cloudProvider') ?><span>*</span></label>
+										<label class="control-label" for="cloudProvider"><?php echo lang('Account:cloudProvider') ?><span>*</span></label>
 										<div class="controls">
 											<select id="cloudProvider" name="cloudProvider" class="" >
 												<?php
-													foreach($post->cloudProviders as $key => $value)
+												$cloudProviders = $post->cloudProviders;
+													foreach($cloudProviders as $key => $value)
 													{
 														echo '<option name="' . $key. '">'.$value.'</option>';
 													}
@@ -52,28 +53,13 @@
 										<span class="serviceInfoHover infoConfig">
 												<i class="serviceInfoIcon icons pull-right"></i>
 													<span class="serviceInfoDetails">
-														<?php echo lang('Account:icon_api_key') ?>
+														<?php echo lang('Account:icon_cloudProvider') ?>
 													</span>
 										</span>
 										</div>
 									</div>
 
-									<div class="control-group">
-										<label class="control-label" for="secret_key"><?php echo lang('Account:secret_key') ?><span>*</span> </label>
-										<div class="controls">
-										<?php
-										$attributes = array('id' => 'secret_key', 'name' => 'secret_key', 'value' => $post -> secret_key, 'maxlength' => '100', 'class' => 'input-xlarge', 'data-val' => 'true', 'data-val-required' => lang('Account:error_secret_key'), );
-										echo form_input($attributes);
- ?>
-										<span class="serviceInfoHover infoConfig">
-												<i class="serviceInfoIcon icons pull-right"></i>
-													<span class="serviceInfoDetails">
-														<?php echo lang('Account:icon_secret_key') ?>
-													</span>
-										</span>
-										</div>
-								</div>
-
+							
 								<div class="control-group">
 														<div class="controls">
 															<button id="Account_save" name="Account_save" class="btn btn-success xervmon-btn-big"><?= lang('Account:save') ?></button>
