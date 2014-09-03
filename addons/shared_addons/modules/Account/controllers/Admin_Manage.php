@@ -29,8 +29,8 @@ class Admin_Manage extends Admin_Controller
 		$this->_ci = ci();
 		parent::__construct();
 
-		$this -> lang -> load(array('account'));
-		$this -> load -> config('account/account');
+		$this -> lang -> load(array('Account'));
+		$this -> load -> config('Account/Account');
 	}
 
 	/**
