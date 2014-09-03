@@ -36,7 +36,7 @@ class Admin extends Admin_Controller
 		$this -> lang -> load(array('Account'));
 		$this -> load -> config('Account/Account');
 		$this -> phpmongoClient = new XervmonMongoQB();
-		$this -> phpmongoClient = $this -> phpmongoClient -> getMongoQB();
+		//$this -> phpmongoClient = $this -> phpmongoClient -> getMongoQB();
 		
 	}
 
@@ -45,7 +45,26 @@ class Admin extends Admin_Controller
 	 */
 	public function index()
 	{
-		print_r($this->current_user);
+		$get = $this->input->get();
+		
+		$total_rows = $this -> phpmongoClient->getTotalRows($this->current_user, $this->section);
+		$pagination = create_pagination('admin/account/index', $total_rows);
+		$pageSize = Settings::get('records_per_page');
+		//$collection, $select, $where = array(), $limit = 25, $offset = 0
+		$accounts = $this -> phpmongoClient -> getData($this->current_user, $this->section, array(), $pageSize, isset($get['offset']) ? $get['offset'] : 0);
+		//$accountArr = array();
+		foreach($accounts as $account)
+		{
+			//$account -> api_key = StringHelper::decrypt($account -> api_key ,md5($this->current_user->username));
+			//$accountArr[] = $account;
+		}
+		//do we need to unset the layout because the request is ajax?
+		$this -> input -> is_ajax_request() and $this -> template -> set_layout(false);
+
+		//if($this->input->is_ajax_request()) echo 'eajax'; else echo 'no ajax';
+		$this -> template -> title($this -> module_details['name']) -> append_js('admin/filter.js') -> set_partial('filters', 'admin/partials/filters') -> set('pageSize', $pageSize) -> set('pagination', $pagination) -> set('accounts', $accounts);
+
+		$this -> input -> is_ajax_request() ? $this -> template -> build('admin/tables/list') : $this -> template -> build('admin/index');
 				
 	}
 

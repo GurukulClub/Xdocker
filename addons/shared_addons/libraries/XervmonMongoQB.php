@@ -109,10 +109,17 @@ echo ' <a href="?page=' . $next . '">Next</a>';
  
 	 */
 	
-	public function getData($collection, $select, $where = array(), $limit = 25, $offset = 0)
+	public function getData($collection, $where = array(), $limit = 25, $offset = 0)
 	{
-		//@TODO
-		return self::$mongoQB->select($select)->limit($limit)->offset($offset)
+		if($currentUser->group == 'admin')
+		{
+			//
+		}
+		else 
+		{
+			$where = array_merge($where, array('userid' => $currentUser->id));
+		}
+		return self::$mongoQB->limit($limit)->offset($offset)
 		->orderBy(array('_id' => 'desc'))->getWhere($collection, $where);	
 		//return $this->_mongo_db->limit($limit)->offset($offset)->order_by(array('_id' => 'desc'))->get_where($collection, $where);	
 	}
@@ -141,5 +148,17 @@ echo ' <a href="?page=' . $next . '">Next</a>';
          
         return($instance);
     }
+    
+	public function getTotalRows($currentUser, $section)
+	{
+		if($currentUser->group == 'admin')
+		{
+			return self::$mongoQB->count($section);
+		}
+		else 
+		{
+			return self::$mongoQB->where(array('userid' => $currentUser->id))->count($section);
+		}
+	}
 	
 }
