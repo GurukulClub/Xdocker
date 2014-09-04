@@ -10,7 +10,6 @@ require_once SHARED_ADDONPATH . "libraries/XervmonMongoQB.php";
 require_once (SHARED_ADDONPATH . 'libraries/MongoQB/src/MongoQB/Builder.php');
 require_once (SHARED_ADDONPATH . 'helpers/StringHelper.php');
 
-use Aws\S3\S3Client;
 
 class Admin extends Admin_Controller
 {
@@ -412,13 +411,13 @@ class Admin extends Admin_Controller
 		$config['region'] = 'us-east-1';
 		$this -> aws = Aws\Common\Aws::factory($config);
 
-		$client = S3Client::factory($config);
 		$conSTatus = false;
 		try
 		{
-			$result = $client -> listBuckets();
 			$conSTatus = true;
 			//$this -> ec2Compute = $this -> aws -> get('ec2');
+			$result = $this -> ec2Compute->describeRegions(array('DryRun' => true ));
+			print_r($result); die();
 
 		} catch(Exception $ex)
 		{
