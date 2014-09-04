@@ -50,9 +50,8 @@
 </div>
 
 <script>
-		$(document).ready(function() {
-	var pageSize = <?= json_encode($pageSize) ?>
-		;
+	$(document).ready(function() {
+		var pageSize = <?= json_encode(Settings::get('records_per_page')) ?>;
 		setupTableSorterChecked ( $ ( '#TableContainer1' ) ,  false ,  pageSize );
-		});
+	});
 </script>
