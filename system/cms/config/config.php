@@ -393,5 +393,5 @@ $config['modules_locations'] = array(
 	ADDON_FOLDER.'__SITE_REF__/modules/' => '../../../addons/__SITE_REF__/modules/',
 	SHARED_ADDONPATH.'modules/' => '../../../addons/shared_addons/modules/'
 );
-
+$config['iv']                               = '741952hheeyy66#c';
 /* End of file config.php */
