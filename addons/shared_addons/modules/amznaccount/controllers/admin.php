@@ -403,10 +403,9 @@ class Admin extends Admin_Controller
 		$conSTatus = false;
 		try
 		{
-			$conSTatus = true;
 			$this -> ec2Compute = $this -> aws -> get('ec2');
-			$result = $this -> ec2Compute->describeRegions(array('DryRun' => FALSE ));
-			print_r($result); die();
+			$result = $this -> ec2Compute->getRegions();
+			$conSTatus = (!empty($result) && count($result) > 0);
 
 		} catch(Exception $ex)
 		{
