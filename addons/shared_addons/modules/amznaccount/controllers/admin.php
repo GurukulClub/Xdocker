@@ -411,6 +411,7 @@ class Admin extends Admin_Controller
 		} catch(Exception $ex)
 		{
 			$conSTatus = false;
+			log_message('error', 'Connection failed with API and Secret .' . $ex->getMessage());
 		}
 		return $conSTatus;
 	}
