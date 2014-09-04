@@ -53,7 +53,7 @@ class Admin extends Admin_Controller
 		$accountArr = array();
 		foreach($accounts as $account)
 		{
-			$apiKey = StringHelper::decrypt($account['api_Key'] ,md5($this->current_user->username));
+			$account['api_key'] = StringHelper::decrypt($account['api_Key'] ,md5($this->current_user->username));
 			$accountArr[] = $account;
 		}
 		//do we need to unset the layout because the request is ajax?
