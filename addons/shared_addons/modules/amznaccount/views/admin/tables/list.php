@@ -9,7 +9,6 @@
 	<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="TableContainer1">
 		<thead>
 			<tr>
-				<th><?php echo lang('amznaccount:account_id') ?></th>
 				<th><?php echo lang('amznaccount:name') ?></th>
 				<th><?php echo lang('amznaccount:api_key') ?></th>
 				<th><?php echo lang('amznaccount:created_on') ?></th>
@@ -23,9 +22,9 @@
 		</tfoot>
 		<tbody>
 			<?php 
-				foreach ($accounts as $post) : ?>
+				foreach ($accounts as $acct) : ?>
 				<tr>
-					<td><?php echo $post->account_id ?></td>
+					<?php $post = json_decode(json_encode($acct), FALSE);?>
 					<td><?php echo $post->name ?></td>
 					<td class="collapse"><?php echo $post->api_key ?></td>
 					<td class="collapse"><?php echo format_date($post->created_on) ?></td>
