@@ -35,8 +35,6 @@ class Admin extends Admin_Controller
 		parent::__construct();
 
 		$this -> load -> model(array('amznaccount_m'));
-		$this -> load -> model(array('business_metadata/page_extn_m'));
-		$this -> load -> model(array('business_metadata/unique_id_m'));
 		$this -> lang -> load(array('amznaccount'));
 		$this -> load -> config('amznaccount/amznaccount');
 		
