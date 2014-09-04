@@ -12,8 +12,6 @@
 				<th><?php echo lang('amznaccount:name') ?></th>
 				<th><?php echo lang('amznaccount:api_key') ?></th>
 				<th><?php echo lang('amznaccount:created_on') ?></th>
-				<th><?php echo lang('amznaccount:created_by') ?></th>
-				
 				<th width="180"><?php echo lang('global:actions') ?></th>
 			</tr>
 		</thead>
@@ -25,20 +23,14 @@
 				foreach ($accounts as $acct) : ?>
 				<tr>
 					<?php $post = json_decode(json_encode($acct), FALSE);?>
+					
 					<td><?php echo $post->name ?></td>
 					<td class="collapse"><?php echo $post->api_key ?></td>
 					<td class="collapse"><?php echo format_date($post->created_on) ?></td>
-					<td class="collapse">
-					<?php if (isset($post->display_name)): ?>
-						<?php echo anchor('admin/UserProfile/edit/'.$post->user_id, $post->display_name, 'target="_blank"') ?>
-					<?php else: ?>
-						<?php echo lang('amznaccount:author_unknown') ?>
-					<?php endif ?>
-					</td>
 					
 					<td style="padding-top:10px;">
-						<a href="<?php echo site_url('admin/amznaccount/edit/' . $post->id) ?>" title="<?php echo lang('global:edit')?>" ><span class="edit"></span></a>
-						<a href="<?php echo site_url('admin/amznaccount/delete/' . $post->id) ?>" title="<?php echo lang('global:delete')?>" ><span class="delete"></span></a>
+						<a href="<?php echo site_url('admin/amznaccount/edit/' . $post->_id->{'$id'}) ?>" title="<?php echo lang('global:edit')?>" ><span class="edit"></span></a>
+						<a href="<?php echo site_url('admin/amznaccount/delete/' . $post->_id->{'$id'}) ?>" title="<?php echo lang('global:delete')?>" ><span class="delete"></span></a>
 					</td>
 					
 				</tr>
