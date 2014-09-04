@@ -34,7 +34,6 @@ class Admin extends Admin_Controller
 		$this->_ci = ci();
 		parent::__construct();
 
-		$this -> load -> model(array('amznaccount_m'));
 		$this -> lang -> load(array('amznaccount'));
 		$this -> load -> config('amznaccount/amznaccount');
 		
@@ -42,8 +41,6 @@ class Admin extends Admin_Controller
 		$this -> phpmongoClient = $this -> phpmongoClient -> getMongoQB();
 		
 		$this -> template -> set('hours', array_combine($hours = range(0, 23), $hours)) -> set('minutes', array_combine($minutes = range(0, 59), $minutes));
-		//->set('categories', $_categories)
-
 	}
 
 	/**
@@ -406,9 +403,8 @@ class Admin extends Admin_Controller
 		}
 	}
 	
-	PRIVATE function authenticate($cparams = array())
+	private function authenticate($account)
 	{
-
 		$config['key'] = StringHelper::decrypt($account->api_key, md5($this->current_user->username ));
 		$config['secret'] = StringHelper::decrypt($account->secret_key, md5($this->current_user->username ));
 		$config['region'] = 'us-east-1';
