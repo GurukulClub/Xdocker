@@ -115,8 +115,8 @@ class Admin extends Admin_Controller
 													'_id' => new MongoId($id)
 													) 
 											  ) -> get($this->section);
-		$post -> api_key = StringHelper::decrypt($post['api_key'], md5($this->current_user->username));
-		$post -> secret_key = StringHelper::decrypt($post['secret_key'], md5($this->current_user->username ));
+		$post['api_key'] = StringHelper::decrypt($post['api_key'], md5($this->current_user->username));
+		$post['secret_key'] = StringHelper::decrypt($post['secret_key'], md5($this->current_user->username ));
 
 		$post -> id = $id;
 		$this -> template -> title($this -> module_details['name'], sprintf(lang('amznaccount:edit_title'), $post -> name)) 
