@@ -283,14 +283,15 @@ class Admin extends Admin_Controller
 					return;
 				}
 				$message = $this -> simpleInsert($accountArray);
-				log_message('info', __FILE__ . '->' . __FUNCTION__ . ' Insert Data inserted to Scheduler ');
+				log_message('info', __FILE__ . '->' . __FUNCTION__ . ' Insert Data inserted');
 			} else
 			{
 				$errors = validation_errors();
 				$message = json_encode(array('status' => 'error', 'status_msg' => $errors));
 			}
 
-		} else
+		} 
+		else
 		{
 			//$this->form_validation->set_rules($amznaccountValidation);
 			if ($this -> form_validation -> run())
@@ -336,7 +337,7 @@ class Admin extends Admin_Controller
 		$accountArray['updated_by'] = $this -> current_user -> id;
 		$ret = $this -> phpmongoClient->where(array('_id' => new MongoId($id), 'userid' => $this->current_user->id ))
 								  ->set($accountArray)
-								  ->update('digitalOceanAccounts', $accountArray);
+								  ->update($this->section, $accountArray);
 			
 		if ($ret)
 		{
@@ -344,8 +345,8 @@ class Admin extends Admin_Controller
 
 			Events::trigger('amznaccount_updated', $id);
 			$this -> triggerEvent($accountArray, 'amznaccount_updated');
-			//	Events::trigger('amznaccount_account_edited', $id); //Need this for events later
-		} else
+		} 
+		else
 		{
 			$message = array('status' => 'error', 'status_msg' => lang('amznaccount:post_edit_error'));
 		}
@@ -364,21 +365,25 @@ class Admin extends Admin_Controller
 	{
 		$this -> form_validation -> set_message('_check_title', sprintf(lang('amznaccount:already_exist_error'), lang('global:title')));
 
-		return $this -> amznaccount_m -> check_exists('name', $title, $id);
+		return $this -> phpmongoClient->where(array('name'=> $title, '_id' => new MongoId($id), 'userid' => $this->current_user->id ))->get($this->section);
+		//$this -> amznaccount_m -> check_exists('name', $title, $id);
 	}
 
 	public function _check_account_id($account_id, $id = null)
 	{
 		$this -> form_validation -> set_message('_check_account_id', sprintf(lang('amznaccount:already_exist_error'), lang('global:title')));
-
-		return $this -> amznaccount_m -> check_exists('account_id', $account_id, $id);
+		return $this -> phpmongoClient->where(array('account_id'=> $account_id, '_id' => new MongoId($id), 'userid' => $this->current_user->id ))->get($this->section);
+		
+		//return $this -> amznaccount_m -> check_exists('account_id', $account_id, $id);
 
 	}
 
 	public function _check_username($api_key, $id = null)
 	{
 		$this -> form_validation -> set_message('_check_username', lang('amznaccount:already_exist_error'));
-		return $this -> amznaccount_m -> check_exists('api_key', $api_key, $id);
+		return $this -> phpmongoClient->where(array('api_key'=> $api_key, '_id' => new MongoId($id), 'userid' => $this->current_user->id ))->get($this->section);
+		
+		
 
 	}
 
