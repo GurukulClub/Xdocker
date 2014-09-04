@@ -85,44 +85,6 @@
 								</div>
 
 								<div class="control-group">
-											<div class="controls">
-
-											 <div class="rackspaceCheckbox">
-													<span class="xervmon-inputCheckbox">
-													<?php if($this->method == 'create'):
-										$params = array('name' => 'support_cost_management'	, 'id' => 'support_cost_management','checked' => FALSE);  $params['class'] = 'checkbox';
-													echo form_checkbox($params).' '. lang('amznaccount:support_cost_management');
-													elseif($this->method == 'edit' && empty($post->bucket_name)): $params = array('name' => 'support_cost_management', 'id' => 'support_cost_management',
-													'checked' => FALSE);  $params['class'] = 'checkbox';
-													echo form_checkbox($params).' '. lang('amznaccount:support_cost_management');
-													elseif($this->method == 'edit' && !empty($post->bucket_name)): $params = array('name' => 'support_cost_management', 'id' => 'support_cost_management',
-													'checked' => TRUE);  $params['class'] = 'checkbox';
-													echo form_checkbox($params).' '. lang('amznaccount:support_cost_management');endif ?> </span>
-
-											 <div class="rackspaceHiddenConetnt" <?php echo empty($post -> bucket_name) ? '' : 'style="display:block;"'; ?> >
-
-														<div class="control-group">
-															<label class="control-label" for="bucket_name"><?php echo lang('amznaccount:bucket_name') ?></label>
-																<div class="controls">
-																<?php
-																$attributes = array('id' => 'bucket_name', 'name' => 'bucket_name', 'value' => $post -> bucket_name, 'maxlength' => '100', 'class' => 'input-xlarge', );
-																echo form_input($attributes);
- ?>
-																<span class="serviceInfoHover infoConfig">
-																		<i class="serviceInfoIcon icons pull-right"></i>
-																			<span class="serviceInfoDetails">
-																			Enter the Bucket Name
-																			</span>
-																</span>
-																</div>
-														</div>
-
-											</div>
-											</div>
-										</div>
-								</div>
-
-													<div class="control-group">
 														<div class="controls">
 															<button id="amznaccount_save" name="amznaccount_save" class="btn btn-success xervmon-btn-big"><?= lang('amznaccount:save') ?></button>
 															<?php $this->load->view('admin/partials/buttons', array('buttons' => array('cancel'))) ?>
@@ -130,10 +92,10 @@
 																if (isset($post -> id))
 																	echo $post -> id;
 																else
-																	'';
+																	echo '';
  ?>" />
 														</div>
-													</div>
+								</div>
 
 								</div>
 							</fieldset>
