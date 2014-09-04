@@ -4,5 +4,5 @@ $config['mongoqb'] = array(
     'persist'   =>  true,
     'persist_key'   =>  'mongoqb',
     'replica_set'   =>  false,
-    'query_safety'  =>  'safe',
+    'query_safety'  =>  'w',
 	);
