@@ -108,7 +108,6 @@ class Admin extends Admin_Controller
 	{
 		$id OR redirect('admin/amznaccount');
 		role_or_die('amznaccount', 'edit_amznaccount');
-		$post = $this -> amznaccount_m -> get($id);
 		$post = $this->phpmongoClient ->where( array
 													(
 													'userid' => $this->current_user->id,
