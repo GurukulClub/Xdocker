@@ -405,7 +405,7 @@ class Admin extends Admin_Controller
 		{
 			$conSTatus = true;
 			$this -> ec2Compute = $this -> aws -> get('ec2');
-			$result = $this -> ec2Compute->describeRegions(array('DryRun' => true ));
+			$result = $this -> ec2Compute->describeRegions(array('DryRun' => FALSE ));
 			print_r($result); die();
 
 		} catch(Exception $ex)
