@@ -18,7 +18,6 @@ class Admin extends Admin_Controller
 	protected $section = 'accounts';
 	private $phpmongoClient;
 	private $_config_file = 'mongoqb';
-	public $_customerIdentifier;
 	private $_ci;
 
 	/** @var array The validation rules */
@@ -40,11 +39,9 @@ class Admin extends Admin_Controller
 		$this -> load -> model(array('business_metadata/unique_id_m'));
 		$this -> lang -> load(array('amznaccount'));
 		$this -> load -> config('amznaccount/amznaccount');
-		$this -> load -> library('Cloud/CloudFactoryAdapter');
-		$this -> lang -> load(array('Cloud/Cloud'));
+		
 		$this -> phpmongoClient = new XervmonMongoQB();
 		$this -> phpmongoClient = $this -> phpmongoClient -> getMongoQB();
-		$this->_customerIdentifier = XervmonMongoQB::getCustomerIdentifier();
 		
 		$this -> template -> set('hours', array_combine($hours = range(0, 23), $hours)) -> set('minutes', array_combine($minutes = range(0, 59), $minutes));
 		//->set('categories', $_categories)
@@ -56,39 +53,21 @@ class Admin extends Admin_Controller
 	 */
 	public function index()
 	{
-		$base_where = '';
-
-		if ($this -> input -> post('f_keywords'))
-		{
-			$base_where = $this -> input -> post('f_keywords');
-			$rackaccount = $this -> amznaccount_m -> get_many_by($base_where);
-		}
-
-		// Create pagination links
-		$total_rows = $this -> amznaccount_m -> count_by($base_where);
-		$pagination = create_pagination('admin/amznaccount/index', $total_rows);
-		$pageSize = Settings::get('records_per_page');
-		
-
-		// Using this data, get the relevant results
-		$accounts = $this -> amznaccount_m -> limit($pagination['limit']) -> get_many_by($base_where);
-		
+		$accounts = $this->phpmongoClient ->where( array('userid' => $this->current_user->id, 'cloudProvider' => CloudType::AWS_CLOUD) ) -> get($this->section);
+	
 		$accountArr = array();
 		foreach($accounts as $account)
 		{
-			$account -> api_key = StringHelper::decrypt($account -> api_key ,md5($this->_customerIdentifier));
+			$apiKey = StringHelper::decrypt($account['apiKey'] ,md5($this->current_user->username));
 			$accountArr[] = $account;
 		}
-		$helpLinks = $this -> page_extn_m -> get_many_by($params = array('slug' => 'amznaccount'));
 		//do we need to unset the layout because the request is ajax?
 		$this -> input -> is_ajax_request() and $this -> template -> set_layout(false);
 
-		//if($this->input->is_ajax_request()) echo 'eajax'; else echo 'no ajax';
-		$this -> template -> title($this -> module_details['name']) -> append_js('admin/filter.js') -> set_partial('filters', 'admin/partials/filters') -> set('pageSize', $pageSize) -> set('pagination', $pagination) -> set('helpLinks', $helpLinks) -> set('accounts', $accountArr);
-
-		$this -> input -> is_ajax_request() ? $this -> template -> build('admin/tables/list') : $this -> template -> build('admin/index');
-		//print_r($this->template);
-
+		$this -> template -> title($this -> module_details['name']) 
+						-> append_js('admin/filter.js') 
+						-> set_partial('filters', 'admin/partials/filters') 
+						 -> set('accounts', $accountArr);
 	}
 
 	/**
@@ -102,9 +81,20 @@ class Admin extends Admin_Controller
 		$post -> account_id = '';
 		$post -> api_key = '';
 		$post -> secret_key = '';
-		$post -> bucket_name = '';
-		$helpLinks = $this -> page_extn_m -> get_many_by($params = array('slug' => 'amznaccount'));
-		$this -> template -> title($this -> module_details['name'], lang('amznaccount:create_title')) -> set('post', $post) -> append_css('bootstrap/bootstrap.css') -> append_css('bootstrap/bootstrap-responsive.css') -> append_css('common/form.css') -> append_css('common/style.css') -> append_css('common/select2.css') -> set('helpLinks', $helpLinks) -> append_js('jquery/jquery.validate.js') -> append_js('script/jquery/select2.js') -> append_js('script/script.js') -> append_js('jquery/jquery.validate.unobtrusive.js') -> append_js('jquery/jquery.validate.bootstrap.js') -> append_js('pnotify/jquery.pnotify.min.js') -> append_css('pnotify/jquery.pnotify.default.css') -> append_js('module::amznaccount.js') -> build('admin/form');
+		$this -> template -> title($this -> module_details['name'], lang('amznaccount:create_title')) 
+						  -> set('post', $post) 
+						  -> append_css('bootstrap/bootstrap.css') 
+						  -> append_css('bootstrap/bootstrap-responsive.css') 
+						  -> append_css('common/form.css') 
+						  -> append_css('common/style.css') 
+						  -> append_css('common/select2.css') 
+						  -> append_js('jquery/jquery.validate.js') 
+						  -> append_js('script/jquery/select2.js') 
+						  -> append_js('script/script.js')
+						  -> append_js('jquery/jquery.validate.unobtrusive.js') 
+						  -> append_js('jquery/jquery.validate.bootstrap.js') 
+	   					  -> append_js('module::amznaccount.js') 
+	   					  -> build('admin/form');
 	}
 	
 	public function add()
@@ -117,38 +107,35 @@ class Admin extends Admin_Controller
 	 *
 	 * @param int $id The ID of the blog post to edit
 	 */
-	public function edit($id = 0)
+	public function edit($id = '')
 	{
 		$id OR redirect('admin/amznaccount');
 		role_or_die('amznaccount', 'edit_amznaccount');
-		$helpLinks = $this -> page_extn_m -> get_many_by($params = array('slug' => 'amznaccount'));
 		$post = $this -> amznaccount_m -> get($id);
-		$post -> api_key = StringHelper::decrypt($post -> api_key, md5($this->_customerIdentifier ));
-		$post -> secret_key = StringHelper::decrypt($post -> secret_key, md5($this->_customerIdentifier ));
+		$post = $this->phpmongoClient ->where( array
+													(
+													'userid' => $this->current_user->id,
+													'cloudProvider' => CloudType::AWS_CLOUD,
+													'_id' => new MongoId($id)
+													) 
+											  ) -> get($this->section);
+		$post -> api_key = StringHelper::decrypt($post -> api_key, md5($this->current_user->username));
+		$post -> secret_key = StringHelper::decrypt($post -> secret_key, md5($this->current_user->username ));
 
 		$post -> id = $id;
-		$this -> template -> title($this -> module_details['name'], sprintf(lang('amznaccount:edit_title'), $post -> name)) -> set('post', $post) -> set('helpLinks', $helpLinks) -> append_js('jquery/jquery.validate.js') -> append_css('bootstrap/bootstrap.css') -> append_css('bootstrap/bootstrap-responsive.css') -> append_css('common/form.css') -> append_js('jquery/jquery.validate.unobtrusive.js') -> append_js('jquery/jquery.validate.bootstrap.js') -> append_js('pnotify/jquery.pnotify.min.js') -> append_css('pnotify/jquery.pnotify.default.css') -> append_js('module::amznaccount.js') -> append_js('script/script.js') -> append_css('common/style.css') -> append_js('script/jquery/select2.js') -> build('admin/form');
-	}
-
-	/**
-	 * Helper method to determine what to do with selected items from form post
-	 */
-	public function action()
-	{
-		switch ($this->input->post('btnAction'))
-		{
-			case 'publish' :
-				$this -> publish();
-				break;
-
-			case 'delete' :
-				$this -> delete();
-				break;
-
-			default :
-				redirect('admin/amznaccount');
-				break;
-		}
+		$this -> template -> title($this -> module_details['name'], sprintf(lang('amznaccount:edit_title'), $post -> name)) 
+			  -> set('post', $post)
+			  -> append_js('jquery/jquery.validate.js') 
+			  -> append_css('bootstrap/bootstrap.css') 
+			  -> append_css('bootstrap/bootstrap-responsive.css') 
+			  -> append_css('common/form.css') 
+			  -> append_js('jquery/jquery.validate.unobtrusive.js') 
+			  -> append_js('jquery/jquery.validate.bootstrap.js') 
+			  -> append_js('module::amznaccount.js') 
+			  -> append_js('script/script.js') 
+			  -> append_css('common/style.css')
+			  -> append_js('script/jquery/select2.js') 
+			  -> build('admin/form');
 	}
 
 	/**
@@ -156,7 +143,7 @@ class Admin extends Admin_Controller
 	 *
 	 * @param int $id The ID of the blog post to delete
 	 */
-	public function delete($id = 0)
+	public function delete($id = '')
 	{
 		role_or_die('amznaccount', 'delete_amznaccount');
 
@@ -171,26 +158,29 @@ class Admin extends Admin_Controller
 			foreach ($ids as $id)
 			{
 				// Get the current page so we can grab the id too
-				if ($post = $this -> amznaccount_m -> get($id))
+				if ($post = $this->phpmongoClient ->where( 
+														array
+														(
+															'userid' => $this->current_user->id,
+															'cloudProvider' => CloudType::AWS_CLOUD,
+															'_id' => new MongoId($id)
+														) 
+													 ) -> get($this->section))
 				{
-					if ($this -> amznaccount_m -> delete($id))
+					if ($this->phpmongoClient ->where( array(
+													'userid' => $this->current_user->id,
+													'cloudProvider' => CloudType::AWS_CLOUD,
+													'_id' => new MongoId($id)
+												) ) -> delete($this->section))
 					{
-						//$this->comment_m->where('module', 'blog')->delete_by('module_id', $id);
-
 						// Wipe cache for this model, the content has changed
-						$this -> pyrocache -> delete('amznaccount_m');
-						$post_titles[] = $post -> name;
+						$post_titles[] = $post[0]['name'];
 						$deleted_ids[] = $id;
 					}
 				}
 			}
-			//$this -> schedule($deleted_ids, "delete");
-			$accountArray['cloudAccountId'] = $id;
-			$this -> schedule($accountArray, "delete");
-			// Fire an event. We've deleted one or more accounts.
 			Events::trigger('amznaccount_deleted', $deleted_ids);
 			$this -> triggerEvent($post_titles, 'amznaccount_deleted');
-			//	Events::trigger('amznaccount_account_deleted', $deleted_ids);
 		}
 
 		// Some pages have been deleted
@@ -268,19 +258,16 @@ class Admin extends Admin_Controller
 		$this -> form_validation -> set_rules($this -> validation_rules);
 		$id = $this -> input -> post('id');
 		
-		$scm = $this -> input -> post('support_cost_management') ? '1' : '0';
-		$bucket_name = $this -> input -> post('bucket_name') ? $this -> input -> post('bucket_name') : '';
-		$api_key = StringHelper::encrypt($this -> input -> post('api_key') ,md5($this->_customerIdentifier));
-		$secret_key = StringHelper::encrypt($this -> input -> post('secret_key') ,md5($this->_customerIdentifier));
-
-		if ($scm)
-		{
-			$this -> form_validation -> set_rules('bucket_name', lang('amznaccount:bucket_name'), 'required');
-		}
-
 		$message = '';
 
-		$accountArray = array('name' => $this -> input -> post('name'), 'cloud_provider' => CloudType::AWS_CLOUD, 'api_key' => $api_key, 'secret_key' => $secret_key, 'account_id' => $this -> input -> post('account_id'), 'support_cost_management' => $scm, 'bucket_name' => $bucket_name, 'created_on' => now(), 'user_id' => $this -> current_user -> id, 'created_by' => $this -> current_user -> id, );
+		$accountArray = array('name' => $this -> input -> post('name'), 
+							  'cloudProvider' => CloudType::AWS_CLOUD, 
+							  'api_key' => $this -> input -> post('api_key'), 
+							  'secret_key' => $this -> input -> post('secret_key'), 
+							  'account_id' => $this -> input -> post('account_id'), 
+							  'created_on' => now(), 
+							  'userid' => $this -> current_user -> id, 
+							  'created_by' => $this -> current_user -> id, );
 		$id = $this -> input -> post('id');
 		if (empty($id))
 		{
@@ -297,11 +284,7 @@ class Admin extends Admin_Controller
 					//This should be in language
 					return;
 				}
-
 				$message = $this -> simpleInsert($accountArray);
-				$cloudAccountId =  json_decode($message) -> id;
-				$accountArray['cloudAccountId'] = $cloudAccountId;
-				$this -> schedule($accountArray, "insert");
 				log_message('info', __FILE__ . '->' . __FUNCTION__ . ' Insert Data inserted to Scheduler ');
 			} else
 			{
@@ -321,10 +304,7 @@ class Admin extends Admin_Controller
 					//This should be in language
 					return;
 				}
-
 				$message = $this -> simpleUpdate($id, $accountArray);
-				$accountArray['cloudAccountId'] = $id;
-				$this -> schedule($accountArray, "update");
 				log_message('info', __FILE__ . '->' . __FUNCTION__ . ' Update Data inserted to Scheduler ');
 			} else
 			{
@@ -336,77 +316,32 @@ class Admin extends Admin_Controller
 		return;
 	}
 
-	private function schedule($accountArray, $mode)
-	{
-
-		$from = strtotime("now");
-		$to = strtotime("now");
-		if (isset($accountArray['api_key']) && isset($accountArray['secret_key']))
-		{
-			$url = site_url() . '/daemons/aws_billing/cronjob.php?awsKey=' . $accountArray['api_key'] . '&awsSecret=' . $accountArray['secret_key'] . '&accountId=' . $accountArray['account_id'] . '&bucket=' . $accountArray['bucket_name'] . '&from=' . $from . '&to=' . $to . '&cloudAccountId=' . $accountArray['cloudAccountId'] . '';
-			$arrayValues['cloudAccountId'] = $accountArray['cloudAccountId'];
-			$arrayValues['cloudProvider'] = CloudType::AWS_CLOUD;
-			$StrReplace = str_replace("index.php/", "", $url);
-			$arrayValues['URL'] = $StrReplace;
-			$arrayValues['status'] = 'New';
-			$config = $this -> config -> item('mongoqb');
-			$arrayValues['customerIdentifier'] = $config['customer_identifier'];
-			
-			$arrayValues = array_merge($arrayValues, $accountArray);
-			$arrayValues['requestType'] = 'Billing';
-			$arrayValues['db'] = array(
-									   'host'       =>  StringHelper::encrypt ($this->db->hostname, md5($config['customer_identifier'])),
-									   'remote_db_link'       =>  StringHelper::encrypt (ci()->config -> item('remote_db_link'), md5($config['customer_identifier'])),
-									   'database'   =>  StringHelper::encrypt ($this->db->database, md5($config['customer_identifier'])),
-									   'prefix'     =>  StringHelper::encrypt ($this->db->dbprefix, md5($config['customer_identifier'])),
-									   'username'   =>  StringHelper::encrypt ($this->db->username, md5($config['customer_identifier'])),
-									   'password'   =>  StringHelper::encrypt ($this->db->password, md5($config['customer_identifier'])),
-									   );
-		}
-
-		switch($mode)
-		{
-			case 'insert' : $this ->phpmongoClient->insert('scheduler',$arrayValues ); break;
-			case 'update' : $this ->phpmongoClient->where(array('cloudAccountId' 
-
-                => intval($accountArray['cloudAccountId'])))
-
-                ->set($arrayValues)
-
-                ->update ('scheduler',$arrayValues ); break;
-
-			case 'delete' :
-				$this -> phpmongoClient -> where(array('cloudAccountId' => intval($accountArray['cloudAccountId']))) -> delete('scheduler');
-				break;
-		}
-	}
-
 	private function simpleInsert($accountArray, $uniqueId = '')
 	{
 		try
 		{
-			$uniqueId = $this -> amznaccount_m -> insert($accountArray);
-			//print_r($uniqueId); die();
-			$this -> pyrocache -> delete_all('amznaccount_m');
+			$uniqueId = $this -> phpmongoClient -> insert($this->section, $accountArray);
 			$message = array('id' => $uniqueId, 'status' => 'success', 'status_msg' => sprintf($this -> lang -> line('amznaccount:post_add_success'), $accountArray['name']));
 			Events::trigger('amznaccount_created', $uniqueId);
 			$this -> triggerEvent($accountArray, 'amznaccount_created');
-			//	Events::trigger('amznaccount_account_created', $uniqueId); //Need this for events later
 		} catch(Exception $ex)
 		{
 			$message = array('status' => 'error', 'status_msg' => lang('amznaccount:post_add_error'));
 		}
 		return json_encode($message);
 	}
-
+	
 	private function simpleUpdate($id, $accountArray)
 	{
 		$message = '';
 		$accountArray['updated_on'] = now();
 		$accountArray['updated_by'] = $this -> current_user -> id;
-		if ($ret = $this -> amznaccount_m -> update($id, $accountArray))
+		$ret = $this -> phpmongoClient->where(array('_id' => new MongoId($id), 'userid' => $this->current_user->id ))
+								  ->set($accountArray)
+								  ->update('digitalOceanAccounts', $accountArray);
+			
+		if ($ret)
 		{
-			$this -> pyrocache -> delete_all('amznaccount_m');
 			$message = array('status' => 'success', 'status_msg' => sprintf($this -> lang -> line('amznaccount:post_edit_success'), $accountArray['name']));
 
 			Events::trigger('amznaccount_updated', $id);
@@ -417,33 +352,6 @@ class Admin extends Admin_Controller
 			$message = array('status' => 'error', 'status_msg' => lang('amznaccount:post_edit_error'));
 		}
 		return json_encode($message);
-	}
-
-	public function upload()
-	{
-		$post = new stdClass();
-
-		$this -> form_validation -> set_rules($this -> pem_validation_rules);
-
-		if ($this -> input -> post('created_on'))
-		{
-			$created_on = strtotime(sprintf('%s %s:%s', $this -> input -> post('created_on'), $this -> input -> post('created_on_hour'), $this -> input -> post('created_on_minute')));
-		} else
-		{
-			$created_on = now();
-		}
-		$allAccounts = $this -> amznaccount_m -> getAccounts();
-		$this -> template -> title($this -> module_details['name'], lang('amznaccount:upload')) -> set('accounts', $allAccounts) -> set('post', $post) -> append_js('jquery/jquery.validate.js') -> append_js('jquery/jquery.validate.unobtrusive.js') -> append_js('jquery/jquery.validate.bootstrap.js') -> append_js('bootstrap/bootstrap-fileupload.min.js') -> append_css('bootstrap/bootstrap-fileupload.min.css') -> append_js('bootstrap/bootstrap-fileupload.min.js')
-		// -> append_js('module::amznUploadForm.js')
-		-> build('admin/uploadForm');
-	}
-
-	public function ajaxUploadKey()
-	{
-		//File uploaded should be saved under uploads/
-		//upload file - mime type should be application/x-x509-user-cert
-		//The key should be able to used to connect to servers.
-
 	}
 
 	/**
@@ -476,57 +384,17 @@ class Admin extends Admin_Controller
 
 	}
 
-	/**
-	 * Generate a preview hash
-	 *
-	 * @return bool
-	 */
-	private function _preview_hash()
-	{
-		return md5(microtime() + mt_rand(0, 1000));
-	}
-
 	private function _checkCloudConnection($accountArray)
 	{
 		try
 		{
 			$account = json_decode(json_encode($accountArray), FALSE);
-			$this -> adapter = CloudFactoryAdapter::instance($account);
-			$this -> adapter -> setDB($this -> db);
-			$this -> adapter -> setGeo('', 'us-east-1');
-			$auth = $this -> adapter -> authenticate($accountArray);
-			$bucket_exists = false;
-			if ($auth)
-			{
-				if (isset($accountArray['support_cost_management']) && ($accountArray['support_cost_management']) && !empty($accountArray['bucket_name']))
-				{
-					log_message('debug', __FILE__ . ' / ' . __FUNCTION__ . ' Auth success. Checking bucket ' . $accountArray['bucket_name']);
-					$client = S3Client::factory(array('key' => $accountArray['api_key'], 'secret' => $accountArray['secret_key'], 'region' => 'us-east-1'));
-
-					log_message('debug', __FILE__ . ' / ' . __FUNCTION__ . ' Auth success. Init S3Client ');
-					if ($client -> doesBucketExist($accountArray['bucket_name']))
-					{
-						$bucket_exists = true;
-						log_message('info', __FILE__ . ' / ' . __FUNCTION__ . 'AWS Account :' . $accountArray['bucket_name'] . ' exists ');
-						return $auth && $bucket_exists;
-
-					} else
-					{
-						log_message('info', __FILE__ . ' / ' . __FUNCTION__ . ' AWS Account :' . $accountArray['bucket_name'] . ' does not exist ');
-						return $auth && $bucket_exists;
-					}
-				} else
-				{
-					log_message('info', __FILE__ . ' / ' . __FUNCTION__ . 'Valid AWS Account :Auth successful');
-					log_message('info', 'Cost management not enabled ' . json_encode($accountArray));
-					return $auth;
-				}
-
-			} else
+			$auth = $this -> authenticate($account);
+			if (!$auth)
 			{
 				log_message('error', __FILE__ . ' /' . __FUNCTION__ . ' Auth Failure ' . json_encode($accountArray));
-				return false;
 			}
+			return $auth;
 		} catch(Exception $e)
 		{
 			log_message('error', 'Connection failed with API and Secret -input .' . json_encode($accountArray));
@@ -534,35 +402,28 @@ class Admin extends Admin_Controller
 			return false;
 		}
 	}
-
-	private function _checkCloudConnectionXX($accountArray)
+	
+	PRIVATE function authenticate($cparams = array())
 	{
-		$regions = $this -> config -> item('aws_regions');
 
-		$client = S3Client::factory(array('key' => $accountArray['api_key'], 'secret' => $accountArray['secret_key'], 'region' => 'us-east-1'));
+		$config['key'] = StringHelper::decrypt($account->api_key, md5($this->current_user->username ));
+		$config['secret'] = StringHelper::decrypt($account->secret_key, md5($this->current_user->username ));
+		$config['region'] = 'us-east-1';
+		$this -> aws = Aws\Common\Aws::factory($config);
 
-		$result = $client -> listBuckets();
-
-		//support_cost_management
-
-		$bucket_exists = false;
-		foreach ($regions as $region)
+		$client = S3Client::factory($config);
+		$conSTatus = false;
+		try
 		{
-			try
-			{
-				if ($client -> doesBucketExist($accountArray['bucket_name']))
-				{
-					log_message('info' . 'AWS Account :' . $accountArray['bucket_name'] . ' exists in ' . $region);
-					$bucket_exists = true;
-					break;
-				}
-			} catch(Exception $ex)
-			{
-				log_message('error' . 'AWS Account Connection with API ' . $accountArray['bucket_name'] . ' exists in ' . var_export($ex));
-				$bucket_exists = false;
-			}
+			$result = $client -> listBuckets();
+			$conSTatus = true;
+			//$this -> ec2Compute = $this -> aws -> get('ec2');
+
+		} catch(Exception $ex)
+		{
+			$conSTatus = false;
 		}
-		return $bucket_exists;
+		return $conSTatus;
 	}
 
 }
