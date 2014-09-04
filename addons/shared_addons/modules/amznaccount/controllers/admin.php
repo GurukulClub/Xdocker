@@ -20,7 +20,9 @@ class Admin extends Admin_Controller
 	private $_ci;
 
 	/** @var array The validation rules */
-	protected $validation_rules = array('name' => array('field' => 'name', 'label' => 'lang:global:title', 'rules' => 'trim|required|max_length[100]'), 'api_key' => array('field' => 'api_key', 'label' => 'lang:amznaccount.error_api_key', 'rules' => 'trim|required|max_length[100]'), 'secret_key' => array('field' => 'secret_key', 'label' => 'lang:amznaccount.error_secret_key', 'rules' => 'trim|required|max_length[100]'), 'account_id' => array('field' => 'account_id', 'label' => 'lang:amznaccount.error_account_id', 'rules' => 'trim|required|max_length[25]'), 'bucket_name' => array('field' => 'bucket_name', 'label' => 'lang:amznaccount.error_bucket_name', 'rules' => 'trim|max_length[100]'), );
+	protected $validation_rules = array('name' => array('field' => 'name', 'label' => 'lang:global:title', 'rules' => 'trim|required|max_length[100]'), 
+										'api_key' => array('field' => 'api_key', 'label' => 'lang:amznaccount.error_api_key', 'rules' => 'trim|required|max_length[100]'), 
+										'secret_key' => array('field' => 'secret_key', 'label' => 'lang:amznaccount.error_secret_key', 'rules' => 'trim|required|max_length[100]'),);
 
 	/**
 	 * Every time this controller controller is called should:
@@ -75,7 +77,6 @@ class Admin extends Admin_Controller
 		role_or_die('amznaccount', 'add_amznaccount');
 		$post = new stdClass();
 		$post -> name = '';
-		$post -> account_id = '';
 		$post -> api_key = '';
 		$post -> secret_key = '';
 		$this -> template -> title($this -> module_details['name'], lang('amznaccount:create_title')) 
@@ -220,11 +221,11 @@ class Admin extends Admin_Controller
 				log_message('info', ' debug: ' . SITE_REF . ':' . json_encode($arr));
 				if(empty($post['account_id']) || empty($post['api_key']) || empty($post['secret_key']))
 				{
-					Events::trigger('email', array('name' => $this -> current_user -> display_name, 'account_id'=>json_encode($post), 'slug' => $eventType, 'to' => $notifyEmail-> value), 'array');
+					Events::trigger('email', array('name' => $this -> current_user -> display_name, 'accountName'=> $post['name'], 'slug' => $eventType, 'to' => $notifyEmail-> value), 'array');
 						
 				}
 				else {	
-					Events::trigger('email', array('name' => $this -> current_user -> display_name, 'account_id' => $post['account_id'], 'api_key' => $post['api_key'], 'secret_key' => $post['secret_key'], 'slug' => $eventType, 'to' => $notifyEmail-> value), 'array');
+					Events::trigger('email', array('name' => $this -> current_user -> display_name, 'accountName'=>$post['name']  ,'api_key' => $post['api_key'], 'secret_key' => $post['secret_key'], 'slug' => $eventType, 'to' => $notifyEmail-> value), 'array');
 				}
 			}
 		} 
@@ -236,7 +237,7 @@ class Admin extends Admin_Controller
 		if (!empty($optional))
 		{
 			$user = $this -> user_m -> get(array('id' => $optional));
-			Events::trigger('email', array('name' => $this -> current_user -> display_name, 'account_id' => $post['account_id'], 'api_key' => $post['api_key'], 'secret_key' => $post['secret_key'], 'slug' => lang('rackaccount:rackaccount_assigned_template'), 'to' => $user -> email), 'array');
+			Events::trigger('email', array('name' => $this -> current_user -> display_name, 'accountName'=>$post['name'] , 'api_key' => $post['api_key'], 'secret_key' => $post['secret_key'], 'slug' => lang('rackaccount:rackaccount_assigned_template'), 'to' => $user -> email), 'array');
 
 		}
 		// IF assinged to user/group is set - then send users assigned to the group
@@ -259,9 +260,8 @@ class Admin extends Admin_Controller
 
 		$accountArray = array('name' => $this -> input -> post('name'), 
 							  'cloudProvider' => CloudType::AWS_CLOUD, 
-							  'api_key' => $this -> input -> post('api_key'), 
-							  'secret_key' => $this -> input -> post('secret_key'), 
-							  'account_id' => $this -> input -> post('account_id'), 
+							  'api_key' => StringHelper::encrypt($this -> input -> post('api_key'), md5($this->current_user->username )), 
+							  'secret_key' => StringHelper::encrypt($this -> input -> post('secret_key'), md5($this->current_user->username )),
 							  'created_on' => now(), 
 							  'userid' => $this -> current_user -> id, 
 							  'created_by' => $this -> current_user -> id, );
@@ -270,7 +270,7 @@ class Admin extends Admin_Controller
 		{
 			//Do validation and insert
 			// Merge and set our validation rules
-			$amznaccountValidation = array_merge($this -> validation_rules, array('name' => array('field' => 'name', 'label' => 'lang:global:title', 'rules' => 'trim|required|max_length[100]|callback__check_title'), 'api_key' => array('field' => 'api_key', 'label' => 'lang:amznaccount.error_api_key', 'rules' => 'trim|required|max_length[100]|callback__check_username'), 'account_id' => array('field' => 'account_id', 'label' => 'lang:amznaccount.error_account_id', 'rules' => 'trim|required|max_length[25]|callback__check_account_id'), ));
+			$amznaccountValidation = array_merge($this -> validation_rules, array('name' => array('field' => 'name', 'label' => 'lang:global:title', 'rules' => 'trim|required|max_length[100]|callback__check_title'), 'api_key' => array('field' => 'api_key', 'label' => 'lang:amznaccount.error_api_key', 'rules' => 'trim|required|max_length[100]|callback__check_username'),));
 			$this -> form_validation -> set_rules(array_merge($this -> validation_rules, $amznaccountValidation));
 			if ($this -> form_validation -> run())
 			{
@@ -303,7 +303,7 @@ class Admin extends Admin_Controller
 					return;
 				}
 				$message = $this -> simpleUpdate($id, $accountArray);
-				log_message('info', __FILE__ . '->' . __FUNCTION__ . ' Update Data inserted to Scheduler ');
+				log_message('info', __FILE__ . '->' . __FUNCTION__ . ' Update Data inserted ');
 			} else
 			{
 				$errors = validation_errors();

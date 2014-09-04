@@ -37,22 +37,6 @@
 										</div>
 
 									<div class="control-group">
-										<label class="control-label" for="account_id"><?php echo lang('amznaccount:account_id') ?><span>*</span></label>
-										<div class="controls">
-										<?php
-										$attributes = array('id' => 'account_id', 'name' => 'account_id', 'value' => $post -> account_id, 'maxlength' => '100', 'class' => 'input-xlarge', 'data-val' => 'true', 'data-val-required' => lang('amznaccount:error_account_id'), );
-										echo form_input($attributes);
- ?>
-										<span class="serviceInfoHover infoConfig">
-												<i class="serviceInfoIcon icons pull-right"></i>
-													<span class="serviceInfoDetails">
-													<?php echo lang('amznaccount:icon_account_id') ?>
-													</span>
-										</span>
-										</div>
-									</div>
-
-									<div class="control-group">
 										<label class="control-label" for="api_key"><?php echo lang('amznaccount:api_key') ?><span>*</span></label>
 										<div class="controls">
 										<?php
