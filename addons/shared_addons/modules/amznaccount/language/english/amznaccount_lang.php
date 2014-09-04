@@ -17,7 +17,7 @@ $lang['amznaccount:delete_success']				    = 'Deleted Amazon Account "%s"';
 $lang['amznaccount:delete_success']                 = 'The account "%s" has been deleted.';
 $lang['amznaccount:mass_delete_success']            = 'The accounts "%s" have been deleted.';
 $lang['amznaccount:delete_error']                   = 'No accounts were deleted.';
-$lang['amznaccount:already_exist_error']  			= 'An Account with this URL already exists within your tenancy';
+$lang['amznaccount:already_exist_error']  			= 'An Account with this name already exists!';
 
 $lang['amznaccount:title']  			= 'Name your account';
 $lang['amznaccount:name']  			= 'Name your account';
