@@ -108,16 +108,19 @@ class Admin extends Admin_Controller
 	{
 		$id OR redirect('admin/amznaccount');
 		role_or_die('amznaccount', 'edit_amznaccount');
-		$post = $this->phpmongoClient ->where( array
+		$acct = $this->phpmongoClient ->where( array
 													(
 													'userid' => $this->current_user->id,
 													'cloudProvider' => CloudType::AWS_CLOUD,
 													'_id' => new MongoId($id)
 													) 
 											  ) -> get($this->section);
-		$post['api_key'] = StringHelper::decrypt($post['api_key'], md5($this->current_user->username));
-		$post['secret_key'] = StringHelper::decrypt($post['secret_key'], md5($this->current_user->username ));
+		//$post = $acct[0];
+		$post = json_decode(json_encode($acct[0]), FALSE);
+		$post->api_key = StringHelper::decrypt($post->api_key, md5($this->current_user->username));
+		$post->secret_key = StringHelper::decrypt($post->secret_key, md5($this->current_user->username ));
 
+		
 		$post -> id = $id;
 		$this -> template -> title($this -> module_details['name'], sprintf(lang('amznaccount:edit_title'), $post -> name)) 
 			  -> set('post', $post)
