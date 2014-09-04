@@ -359,30 +359,19 @@ class Admin extends Admin_Controller
 	 *
 	 * @return bool
 	 */
-	public function _check_title($title, $id = null)
+	public function _check_title($title)
 	{
 		$this -> form_validation -> set_message('_check_title', sprintf(lang('amznaccount:already_exist_error'), lang('global:title')));
 
-		return $this -> phpmongoClient->where(array('name'=> $title, '_id' => new MongoId($id), 'userid' => $this->current_user->id ))->get($this->section);
-		//$this -> amznaccount_m -> check_exists('name', $title, $id);
-	}
-
-	public function _check_account_id($account_id, $id = null)
-	{
-		$this -> form_validation -> set_message('_check_account_id', sprintf(lang('amznaccount:already_exist_error'), lang('global:title')));
-		return $this -> phpmongoClient->where(array('account_id'=> $account_id, '_id' => new MongoId($id), 'userid' => $this->current_user->id ))->get($this->section);
-		
-		//return $this -> amznaccount_m -> check_exists('account_id', $account_id, $id);
-
+		$ret =  $this -> phpmongoClient->where(array('name'=> $title, 'userid' => $this->current_user->id ))->get($this->section);
+		if(empty($ret)) return true; else return false;
 	}
 
 	public function _check_username($api_key, $id = null)
 	{
 		$this -> form_validation -> set_message('_check_username', lang('amznaccount:already_exist_error'));
-		return $this -> phpmongoClient->where(array('api_key'=> $api_key, '_id' => new MongoId($id), 'userid' => $this->current_user->id ))->get($this->section);
-		
-		
-
+		$ret = $this -> phpmongoClient->where(array('api_key'=> $api_key, 'userid' => $this->current_user->id ))->get($this->section);
+		if(empty($ret)) return true; else return false;
 	}
 
 	private function _checkCloudConnection($accountArray)
