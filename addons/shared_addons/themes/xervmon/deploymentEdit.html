@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>deployment edit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Le styles -->
+<link href="css/bootstrap/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/common/style.css" rel="stylesheet">
+<link href="css/common/jquery-ui.css" rel="stylesheet">
+<link href="css/common/responsiveStyle.css" rel="stylesheet">
+<link href="css/common/select2.css" rel="stylesheet">
+<link href="css/common/drag-and-drop.css" rel="stylesheet"  />
+
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <logo class="logoInside"><img src="img/logo-small.png"></logo>
+            <ul class="xervmon-topList">
+                <li class="xervmon-search">
+                    <input type="text" placeholder="Search">
+                    <i class="icon-search"></i></li>
+    <li class="xervmon-priority"><a href="#highPriority" class="blink">2 High priority actions</a></li>
+    <li><a href="#"><span class="hpIcon icons pull-left"></span></a></li>
+    <li class="xervmon-user">Welcome, ajith1<span class="settings"></span>
+     <div class="settingsDetail">
+      <ul>
+       <li><a href="#"><span class="editProfile"></span>Edit Profile</a></li>
+       <li><a href="#"><span class="logout"></span>Logout</a></li>
+      </ul>
+     </div>
+    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="xervmon-container" class="row-fluid">
+<button type="button" class="btn btn-navbar tabIcon" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+          </button>
+    <div id="xervmon-sidebar">
+        <div class=" sidebar-nav">
+            <div id="accordion2" class="accordion">
+                <div class="nav-header">MAIN MENU</div>
+                <div class="accordion-group" id="dashboard">
+     <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFirst"><span class="sideBarIcon dashboardIcon"></span> Dashboard</i> </a> </div>
+     <div class="accordion-body collapse" id="collapseFirst">
+                        <div class="accordion-inner"></div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="manage">
+     <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"> <span class="sideBarIcon manageIcon"></span>Manage<i class="arrow"></i> </a> </div>
+                    <div id="collapseOne" class="accordion-body collapse">
+                        <div class="accordion-inner active"><span class="sideBarIcon manageBuisenessIcon"></span>Business Metadata </div>
+                        <div class="accordion-inner"><span class="sideBarIcon cheifClientIcon"></span>Chef Client</div>
+                        <div class="accordion-inner "><span class="sideBarIcon commentsIcon"></span>Comments</div>
+                        <div class="accordion-inner"><span class="sideBarIcon manageenterpriseIcon"></span>Enterprise App Bazaar</div>
+                        <div class="accordion-inner"><span class="sideBarIcon filesIcon"></span>Files</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="cloud">
+     <div class="accordion-heading"> <a href="#collapseTwo" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon cloudIcon"></span>Cloud<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseTwo">
+                        <div class="accordion-inner active"><span class="sideBarIcon deployPlannerIcon"></span>Deployment Planner</div>
+                        <div class="accordion-inner"><span class="sideBarIcon emailTemplateIcon"></span>Email Templates</div>
+                        <div class="accordion-inner"><span class="sideBarIcon manageCloudIcon"></span>Manage Cloud</div>
+                        <div class="accordion-inner"><span class="sideBarIcon monitorIcon"></span>Monitoring</div>
+                        <div class="accordion-inner"><span class="sideBarIcon rackcloudObjectIcon"></span>Rackcloud ObjectStorage</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="tools">
+     <div class="accordion-heading"> <a href="#collapseThree" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon toolIcon"></span>Tools<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseThree">
+                        <div class="accordion-inner active"><span class="sideBarIcon apiMngmtIcon"></span> API Management</div>
+                        <div class="accordion-inner"><span class="sideBarIcon maintenanceIcon"></span> Maintenance</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="users">
+     <div class="accordion-heading"> <a href="#collapseFour" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon usersIcon"></span>Users<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseFour">
+                        <div class="accordion-inner active"><span class="sideBarIcon groupsIcon"></span>Groups</div>
+                        <div class="accordion-inner"><span class="sideBarIcon permissionsIcon"></span>Permissions</div>
+                        <div class="accordion-inner"><span class="sideBarIcon usersIconNew"></span>Users</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="settings">
+     <div class="accordion-heading"> <a href="#collapseFive" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon settingsIcon"></span>Settings</a> </div>
+     <div class="accordion-body collapse" id="collapseFive">
+                        <div class="accordion-inner"></div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="addons">
+     <div class="accordion-heading"> <a href="#collapseSix" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon addonsIcon"></span>Add-ons<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseSix">
+                        <div class="accordion-inner active"><span class="sideBarIcon modulesIcon"></span>Modules</div>
+                        <div class="accordion-inner"><span class="sideBarIcon themesIcon"></span>Themes</div>
+                        <div class="accordion-inner"><span class="sideBarIcon pluginsIcon"></span>Plugins</div>
+                        <div class="accordion-inner"><span class="sideBarIcon widgetsIcon"></span>Widgets</div>
+                        <div class="accordion-inner"><span class="sideBarIcon fieldTypesIcon"></span>Field Types</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="profile">
+     <div class="accordion-heading"> <a href="#collapseSeven" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon profileIcon"></span>Profile<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseSeven">
+                        <div class="accordion-inner active"><span class="sideBarIcon editProfileIcon"></span>Edit profile</div>
+                        <div class="accordion-inner"><span class="sideBarIcon logoutIcon"></span>Logout</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="accounts">
+     <div class="accordion-heading"> <a href="#collapseEight" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon accountsIcon"></span>Accounts <i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseEight">
+                        <div class="accordion-inner active"><span class="sideBarIcon amazonAccntIcon"></span>Amazon Account </div>
+                        <div class="accordion-inner"><span class="sideBarIcon hpIcon"></span> HP CSI Reports</div>
+                        <div class="accordion-inner"><span class="sideBarIcon hpIcon"></span> HP Cloud Account</div>
+                        <div class="accordion-inner"><span class="sideBarIcon rackcloudObjectIcon"></span> Rackspace Cloud Account</div>
+                    </div>
+                </div>
+                <div class="accordion-group selectedAccordian" id="reports">
+     <div class="accordion-heading"> <a href="#collapseNine" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"><span class="sideBarIcon reportIcon"></span>Reports Builder</a> </div>
+     <div class="accordion-body collapse" id="collapseNine">
+                        <div class="accordion-inner"></div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="reqiusitions">
+     <div class="accordion-heading"> <a href="#collapseTen" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"><span class="sideBarIcon supportIcon"></span> Requisitions  <i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseTen">
+                        <div class="accordion-inner active"><span class="sideBarIcon requisitIcon"></span>Requisitions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.well --> 
+    </div>
+    <div id="xervmon-mainContent"> <span class="expdBtn"></span>
+        <div id="xervmon-dashboardContent" class="rightContent">
+           dashboard contents
+        </div>
+        <!--xervmon-dashboardContent ends--> 
+        
+        <div id="xervmon-manageContent" class="rightContent">
+           manage contents
+        </div>
+        <!--xervmon-manageContent ends--> 
+        
+        <div id="xervmon-cloudContent" class="rightContent">
+        cloud contents
+        </div>
+        <!--xervmon-cloudContent ends-->
+        
+        <div id="xervmon-toolsContent" class="rightContent">
+        tools contents
+        </div>
+        <!--xervmon-toolsContent ends-->
+        
+        <div id="xervmon-usersContent" class="rightContent">
+        users contents
+        </div>
+        <!--xervmon-usersContent ends-->
+        
+        <div id="xervmon-settingsContent" class="rightContent">
+        settings contents
+        </div>
+        <!--xervmon-settingsContent ends-->
+        
+        <div id="xervmon-addonsContent" class="rightContent">
+        addons contents
+        </div>
+        <!--xervmon-addonsContent ends-->
+        
+        <div id="xervmon-profileContent" class="rightContent">
+        profile contents
+        </div>
+        <!--xervmon-profileContent ends-->
+        
+        <div id="xervmon-accountsContent" class="rightContent">
+        accounts contents
+        </div>
+        <!--xervmon-accountsContent ends-->
+        
+        <div id="xervmon-reportsContent" class="rightContent">
+        <ul class="topStrip">
+            <li class="active">DeploymenTS<span class="divider"></span></li>
+            <li class="normal">requisitions<span class="divider"></span></li>
+            </ul>
+            <div class="subListMain"></div>
+        <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12" >
+                        <ul class="breadcrumb">
+                          <li class="active"><a href="#">Deployment Planner</a></li>
+                        </ul>
+                        <h3>Deployment Planner</h3>
+                        <div class="contentBlock">
+                        <h4>Edit Deployments
+                        <a class="btn pull-right btnXerv posConfig">DEPLOY</a></h4>
+                        <div class="contentBlockDetails">
+                        <div class="row-fluid contentBlockTop">
+                        <ul class="contentBlockTopList">
+                        <li><span class="leftInfmn">Est. Hourly:</span><span class="rightInfmn">0.40 USD</span></li>
+                        <li><span class="leftInfmn">Est. Monthly:</span><span class="rightInfmn">137.75 USD</span></li>
+                        <li><span class="leftInfmn">% of Soft-Budget:</span><span class="rightInfmn">0%</span></li>
+                        <li><span class="leftInfmn">Hard Budget:</span><span class="rightInfmn">0%</span></li>
+                        </ul>
+                        <button class="btn btn-success saveButton" type="submit"><i class="iconGreenTick pull-left icons"></i>Save</button>
+                        <button class="btn btn-cancel cancelButton" type="submit"><i class=" iconClose pull-left icons"></i>Cancel</button>
+                        </div>
+                        
+                        <div class="row-fluid">
+                        <div class="contentBlockNew span9">
+                        <h4>Server Properties
+                        <div class="serviceInfoHover pull-right tooltipQuest">
+                        <i class="serviceInfoIcon icons pull-left"></i>
+                        <div class="serviceInfoDetails">
+                        lorem ipsum Lorem ipsum dolor sit amet
+                        </div>
+                        </div>
+                        </h4>
+                        <div class="contentBlockDetails">
+                        <div class="row-fluid">
+                        <div class="span4">
+                        <span class="labelSel marginTopConfig span5">Choose cloud provider</span>
+                        <select id="e1" required="" class="span7" data-placeholder="">
+                        <option>Hp Cloud</option>
+ 						<option>Hp Cloud</option>
+ 						<option>Hp Cloud</option>
+						<option>Hp Cloud</option>
+						<option>Hp Cloud</option>
+						</select>
+                        </div>
+                        <div class="span4">
+                        <span class="labelSel span5">Name</span>
+                        <select id="e2" required="" class="span7" data-placeholder="">
+                        <option>Demo</option>
+ 						<option>Hp Cloud</option>
+ 						<option>Hp Cloud</option>
+						<option>Hp Cloud</option>
+						<option>Hp Cloud</option>
+						</select>
+                        </div>
+                        <div class="span4">
+                        <span class="labelSel span5">Region</span>
+                        <select id="e3" required="" class="span7" data-placeholder="">
+                        <option>UK</option>
+ 						<option>Hp Cloud</option>
+ 						<option>Hp Cloud</option>
+						<option>Hp Cloud</option>
+						<option>Hp Cloud</option>
+						</select>
+                        </div>
+                        </div>
+                        <div class="row-fluid">
+                        <div class="span4">
+                        <span class="labelSel span5">Enviornment</span>
+                        <select id="e4" required="" class="span7" data-placeholder="">
+                        <option>Stagging</option>
+ 						<option>Hp Cloud</option>
+ 						<option>Hp Cloud</option>
+						<option>Hp Cloud</option>
+						<option>Hp Cloud</option>
+						</select>
+                        </div>
+                        <div class="span4">
+                        <span class="labelSel span5">Security Group</span>
+                        <select id="e5" required="" class="span7" data-placeholder="">
+                        <option>Default3</option>
+ 						<option>Hp Cloud</option>
+ 						<option>Hp Cloud</option>
+						<option>Hp Cloud</option>
+						<option>Hp Cloud</option>
+						</select>
+                        </div>
+                        <div class="span4">
+                        <span class="labelSel span5 ">Tags</span>
+                        <input type="text" required="" id="" class="span7 marginrightConfig">
+                        </div>
+                        </div>
+                        </div>
+                        </div><!--contentBlockNew Ends-->
+                        
+                        <div class="contentBlockNew span3 budget">
+                        <h4>Budget</h4>
+                        <div class="contentBlockDetails">
+                        <select id="e6" required="" class="span12" data-placeholder="">
+                        <option>abc-dol00-do200</option>
+ 						<option>abc-dol00-do200</option>
+ 						<option>abc-dol00-do200</option>
+						<option>abc-dol00-do200</option>
+						<option>abc-dol00-do200</option>
+						</select>
+                        <a href="#" class="pull-right addBudget"><i class="pull-left icons"></i>Add Budget</a>
+                        </div>
+                        </div>
+                        </div><!-- row ends-->
+                        
+                        <div class="row-fluid">
+                        <div class="contentBlockNew span9">
+                        <h4>Cloud Properties
+                        <div class="serviceInfoHover pull-right tooltipQuest">
+                        <i class="serviceInfoIcon icons pull-left"></i>
+                        <div class="serviceInfoDetails">
+                        lorem ipsum Lorem ipsum dolor sit amet
+                        </div>
+                        </div>
+                        </h4>
+                        <div class="contentBlockDetails">
+                        <div id="serviceAccordian" class="img-polaroid img-rounded">
+                        <ul class="dragDropList">
+                        <li><a><img src="img/cloudServer.png"><p>Cloud server</p></a></li>
+                        <li><a><img src="img/volume.png"><p>Volume</p></a></li>
+                        <li><a><img src="img/loadBalancer.png"><p>Load Balancer</p></a></li>
+                        <li><a><img src="img/cloudDatabase.png"><p>CloudDatabase</p></a></li>
+                        <li><a><img src="img/HAloadbalancer.png"><p>HA-Load Balancer</p></a></li>
+                        </ul>
+                        </div>
+                        <div id="jsPlumbSuperWrapper" class="img-polaroid img-rounded" placeholder="Drag & drop the templates from toolbar">
+					    </div>
+                        
+                        
+                        </div>
+                        </div>
+                        <div class="contentBlockNew span3 cloudServer">
+                        <div class="accordion" id="accordion3">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle selected" data-toggle="collapse" data-parent="#accordion3" href="#collapseOneN">
+      CloudServer CloudServer<i class="arrowRight pull-right"></i>
+      </a>
+    </div>
+    <div id="collapseOneN" class="accordion-body collapse in">
+      <div class="accordion-inner">
+      <label>Server Name</label><input class="span12" type="text" id="" required="">
+      <label>Flavor Type</label>
+                        <select id="e4" required="" class="span12" data-placeholder="">
+                        <option>Stagging</option>
+ 						<option>Hp Cloud</option>
+ 						<option>Hp Cloud</option>
+						<option>Hp Cloud</option>
+						<option>Hp Cloud</option>
+						</select>
+       <label>Number Of Instance</label>
+       <span class="valIncDec"><input class="span12" type="text" id="inputVal" required="" value="1"><span class="select2-arrow"><i class="upArrow"></i><i class="downArrow"></i></span></span>
+      <label>Region</label>
+                        <select id="e4" required="" class="span12" data-placeholder="">
+                        <option>Stagging</option>
+ 						<option>Hp Cloud</option>
+ 						<option>Hp Cloud</option>
+						<option>Hp Cloud</option>
+						<option>Hp Cloud</option>
+						</select>
+      <label>Choose an Image</label>
+                        <select id="e4" required="" class="span12" data-placeholder="">
+                        <option>Stagging</option>
+ 						<option>Hp Cloud</option>
+ 						<option>Hp Cloud</option>
+						<option>Hp Cloud</option>
+						<option>Hp Cloud</option>
+						</select>
+      <label>Prebuilt Stack</label>
+                        <select id="e4" required="" class="span12" data-placeholder="">
+                        <option>Stagging</option>
+ 						<option>Hp Cloud</option>
+ 						<option>Hp Cloud</option>
+						<option>Hp Cloud</option>
+						<option>Hp Cloud</option>
+						</select>                                                                                      
+      <label>Unit Cost</label><input class="span12" type="text" id="" required="">
+      <label>Monthly Cost</label><input class="span12" type="text" id="" required="">
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseTwoN">
+      HA-Load Balancer  HA-<i class="arrowRight pull-right"></i>
+      </a>
+    </div>
+    <div id="collapseTwoN" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseThreeN">
+      CloudServer CloudServer<i class="arrowRight pull-right"></i>
+      </a>
+    </div>
+    <div id="collapseThreeN" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseFourN">
+      CloudDatabase  Cloud<i class="arrowRight pull-right"></i>
+      </a>
+    </div>
+    <div id="collapseFourN" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseFiveN">
+      Volume  Volume<i class="arrowRight pull-right"></i>
+      </a>
+    </div>
+    <div id="collapseFiveN" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseSixN">
+      Volume  Volume<i class="arrowRight pull-right"></i>
+      </a>
+    </div>
+    <div id="collapseSixN" class="accordion-body collapse">
+      <div class="accordion-inner">
+        Anim pariatur cliche...
+      </div>
+    </div>
+  </div>
+</div>
+                        </div>
+                        </div>
+  
+ 
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            </div>
+        <!--xervmon-reportsContent ends-->
+        
+        <div id="xervmon-reqiusitionsContent" class="rightContent">
+        requisitions contents
+        </div>
+        <!--xervmon-requisitionsContent ends-->
+        
+    </div>
+    <!-- mainContent ends-->
+   
+</div>
+<!--/row-->
+
+<footer>
+ <p>Copyright &copy; 2012 - 2013 Xervmon Inc. <span class="footerRight">Rendered in 0.2578 sec. using 17.61MB</span></p>
+ <p class="version">Version 2.2.1 Professional</p>
+</footer>
+
+<!-- Le javascript
+    ================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script src="js/script/jquery/jquery-1.9.1.min.js"></script> 
+<script src="js/script/jquery/jquery-migrate-1.1.1.min.js"></script>
+<script src="js/script/jquery/jquery-ui.min.js"></script> 
+<script src="js/script/jquery/flotr2.min.js"></script> 
+<script src="js/script/bootstrap/bootstrap.js"></script> 
+<script src="js/script/script.js"></script> 
+<script src="js/script/jquery/select2.js"></script>
+	<script>
+    $(document).ready(function() { $("#e1,#e2,#e3,#e4,#e5,#e6").select2();});
+    </script>
+<script type="text/javascript">
+	window.deploymentData = {"id":"34","data":"{\"Demo\":{\"5_91273\":{\"uniqueID\":\"5_91273\",\"flavorId\":\"Temp\",\"cloudProvider\":\"Rackspace Cloud\",\"serviceType\":\"HA-Load Balancer\",\"serviceTypeID\":\"5\",\"position\":{\"top\":52,\"left\":676.5},\"connections\":[\"1_26885\",\"1_14070\"],\"connection_names\":[\"CloudServer\",\"CloudServer\"],\"lb_name\":\"HA-Load Balancer\",\"virtual_ip\":\"PUBLIC\",\"protocol\":\"DNS_TCP\",\"port\":\"\",\"virtual_ip_2\":\"PUBLIC\",\"algorithm\":\"ROUND_ROBIN\",\"region_geo\":\"DFW\",\"server_cost\":\"\",\"monthly_cost\":\"\"},\"4_31273\":{\"uniqueID\":\"4_31273\",\"flavorId\":\"11\",\"flavorName\":\"512 MB\",\"cloudProvider\":\"Rackspace Cloud\",\"serviceType\":\"CloudDatabase\",\"serviceTypeID\":\"4\",\"position\":{\"top\":237,\"left\":78.40625},\"connections\":[\"1_26885\",\"1_14070\"],\"connection_names\":[\"CloudServer\",\"CloudServer\"],\"server_name\":\"CloudDatabase\",\"no_instances\":\"1\",\"region_geo\":\"DFW\",\"server_cost\":\"0.06\",\"monthly_cost\":\"43.8\",\"disk_size\":\"1\",\"db_name\":\"\",\"username\":\"\",\"password\":\"\"},\"2_3603\":{\"uniqueID\":\"2_3603\",\"flavorId\":\"9\",\"flavorName\":\"STANDARD SATA\",\"cloudProvider\":\"Rackspace Cloud\",\"serviceType\":\"Volume\",\"serviceTypeID\":\"2\",\"position\":{\"top\":29,\"left\":102.21875},\"connections\":[\"1_26885\"],\"connection_names\":[\"CloudServer\"],\"vol_name\":\"Volume\",\"region_geo\":\"DFW\",\"server_cost\":\"0.15\",\"monthly_cost\":\"15\",\"vol_size\":\"100\"},\"2_44645\":{\"uniqueID\":\"2_44645\",\"flavorId\":\"9\",\"flavorName\":\"STANDARD SATA\",\"cloudProvider\":\"Rackspace Cloud\",\"serviceType\":\"Volume\",\"serviceTypeID\":\"2\",\"position\":{\"top\":316,\"left\":700.21875},\"connections\":[\"1_14070\"],\"connection_names\":[\"CloudServer\"],\"vol_name\":\"Volume\",\"region_geo\":\"DFW\",\"server_cost\":\"0.15\",\"monthly_cost\":\"15\",\"vol_size\":\"100\"},\"1_26885\":{\"uniqueID\":\"1_26885\",\"flavorId\":\"2\",\"flavorName\":\"512 MB\",\"cloudProvider\":\"Rackspace Cloud\",\"serviceType\":\"CloudServer\",\"serviceTypeID\":\"1\",\"position\":{\"top\":12,\"left\":324},\"connections\":[\"5_91273\",\"4_31273\",\"2_3603\"],\"connection_names\":[\"HA-Load Balancer\",\"CloudDatabase\",\"Volume\"],\"server_name\":\"CloudServer\",\"no_instances\":\"1\",\"region_geo\":\"DFW\",\"pre_built_stack\":\"AMP\",\"server_cost\":\"0.022\",\"monthly_cost\":\"16.6\"},\"1_14070\":{\"uniqueID\":\"1_14070\",\"flavorId\":\"2\",\"flavorName\":\"512 MB\",\"cloudProvider\":\"Rackspace Cloud\",\"serviceType\":\"CloudServer\",\"serviceTypeID\":\"1\",\"position\":{\"top\":348,\"left\":283},\"connections\":[\"5_91273\",\"4_31273\",\"2_44645\"],\"connection_names\":[\"HA-Load Balancer\",\"CloudDatabase\",\"Volume\"],\"server_name\":\"CloudServer\",\"no_instances\":\"1\",\"region_geo\":\"DFW\",\"pre_built_stack\":\"AMP\",\"server_cost\":\"0.022\",\"monthly_cost\":\"16.6\"}}}","title":"Demo","tags":"","cloudProvider":"Rackspace Cloud","region":"US","deploymentMode":"Development","securityGroupId":"6","budgetId":"3","summary":"{\"hourly\":\"0.40\",\"monthly\":\"137.75\",\"budget_soft\":\"0\",\"budget_hard\":\"0\"}","status":"draft","created_on":"1372661035","created_by":"1","updated_on":"1377925047","updated_by":"25","assigned_to":"0","connectionEndpointStorage":"{\"1_26885:5_91273\":{\"1_26885\":\"endpoint-right\",\"5_91273\":\"endpoint-bottom\"},\"1_14070:5_91273\":{\"1_14070\":\"endpoint-right\",\"5_91273\":\"endpoint-right\"},\"1_26885:4_31273\":{\"1_26885\":\"endpoint-bottom\",\"4_31273\":\"endpoint-right\"},\"1_14070:4_31273\":{\"1_14070\":\"endpoint-bottom\",\"4_31273\":\"endpoint-bottom\"},\"2_3603:1_26885\":{\"2_3603\":\"endpoint-bottom\",\"1_26885\":\"endpoint-left\"},\"2_44645:1_14070\":{\"2_44645\":\"endpoint-left\",\"1_14070\":\"endpoint-top\"}}","SecurityGroup":"Default1"};
+	console.log(deploymentData);
+</script>
+
+<script src="js/script/jquery/jquery.jsPlumb-1.4.1-all-min.js"></script>
+<script src="js/script/jquery/jquery.validate.js"></script>
+<script src="js/script/jquery/dragndrop.js"></script>
+</body>
+</html>

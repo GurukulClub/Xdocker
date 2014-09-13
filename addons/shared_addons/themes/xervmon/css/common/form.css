@@ -1,0 +1,219 @@
+.formContent {
+    margin: 0.3em;
+    padding: 0.8em;
+    height: 180px;
+    overflow-x: hidden;
+    overflow-y: auto;
+	
+	
+}
+
+.formwidget{
+	box-shadow:0 0 3px #e8e7e7;
+	border-radius:10px;
+	background: none repeat scroll 0% 0% white;
+	margin: 0 1em 1em 0;
+	list-style-type : none;
+	background-color: #fbfcfc !important;
+
+  /* Safari 5.1+, Chrome 10+ */
+  background: -webkit-linear-gradient(bottom, #f3f3f3, #fbfcfc 18px) !important;
+	/* Firefox 3.6+ */
+  background: -moz-linear-gradient(bottom, #f3f3f3, #fbfcfc 18px) !important;
+	/* IE 10 */
+  background: -ms-linear-gradient(bottom, #f3f3f3, #fbfcfc 18px) !important;
+	/* Opera 11.10+ */
+  background: -o-linear-gradient(bottom, #f3f3f3 , #fbfcfc 18px) !important;
+}
+
+.formHeader
+{
+	border:none;
+	border-radius:10px 10px 0 0;
+	padding-top:11px !important;
+	padding-bottom:13px!important;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+	font-weight:normal;
+	text-shadow:0px 1px 0px #fff;
+	display: block;
+	margin: 0px; 
+	padding: 5px 11px;
+	 /* fallback */
+  background-color: #f8f8f8;
+
+  /* Safari 5.1+, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #f8f8f8, #e7e7e7);
+
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #f8f8f8, #e7e7e7);
+
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #f8f8f8, #e7e7e7);
+
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #f8f8f8, #e7e7e7);
+	
+}
+
+.form-field input[type="text"], .form-field input[type="password"], .form-field input[type="email"], .form-field input[type="number"]{
+    color: #000000 !important;
+    font-size: 18px;
+    width: 70%;
+	box-shadow: 0 3px 4px -3px #CCCCCC inset;
+    height: 25px;
+}
+ .form-field select{
+    color: #000000 !important;
+    font-size: 18px;
+    width: 75%;
+	box-shadow: 0 3px 4px -3px #CCCCCC inset;
+    height: 30px;
+}
+.form-horizontal .control-label {
+    font-size: 15px;
+    color: #333333;
+    width: 170px;
+}
+
+.form-horizontal .control-group {
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+.success{padding-top:0px /*!important*/;text-align:left /*!important*/;background-color:#FBFCFC ; }
+
+.error{padding-top:0px /*!important*/;text-align:left /*!important*/;background-color:#FBFCFC ; }
+
+.control-group.success .control-label{color: #333333;}
+
+.control-group.error .control-label{color: #333333;}
+
+.control-group.warning .control-label{color: #333333;}
+
+.control-group.warning .help-block{
+	color: #FF0000;
+	margin-left: 80%;
+	margin-top : -3.5%;
+}
+.md-editor{width : 73%;}
+
+
+.serviceInfo
+{
+	cursor:pointer;
+	border-right:1px solid #bfc0c0;
+	color:#333333;
+	font-size:11px;
+	margin:-5px 15px 0 5px;
+	padding-right:15px;
+}
+.serviceInfoHover
+{
+	position:absolute;
+	text-decoration:underline;
+	line-height:35px;
+	clear:left;
+	font-size:11px;
+	cursor:pointer;
+	padding-left:5px;
+}
+.serviceInfoHover:hover
+{
+	text-decoration:none;
+}
+.serviceInfoIcon
+{
+	background-position:-145px -166px;
+	margin:9px 2px 0 0;
+}
+.serviceInfoDetails
+{
+	display:none;
+	position:absolute;
+	left:0;
+	top:32px;
+	background:rgba(0, 0, 0, 0.9);
+	color:#fff;
+	padding:10px;
+	border-radius:5px;
+	min-width:200px;
+	z-index:9;
+	line-height:normal;
+}
+.serviceInfoDetails p
+{
+	float:left;
+	width:100%;
+	margin:0;
+}
+.serviceInfoDetails p .detail
+{
+	color:#36b6e2;
+	margin-left:5px;
+}
+.serviceInfoDetails:after
+{
+	position:absolute;
+	top:-15px;
+	left:7px;
+	content:"";
+	border-width:9px;
+	border-color: transparent transparent rgba(0, 0, 0, 0.9);
+	border-style:solid;
+}
+.serviceInfoHover:hover .serviceInfoDetails
+{
+	display:block;
+
+}
+
+.icons {
+    background: url(../../img/sprite.png) no-repeat;
+    width: 16px;
+    height: 16px;
+   margin:9px 2px 0 0;
+    background-position: -145px -166px;
+}
+
+
+.tooltipQuest {
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 14px;
+    line-height: 14px;
+    margin-top: 1px;
+    vertical-align: text-top;
+    width: 14px;
+}
+.tooltipQuest .serviceInfoIcon {
+	background-position: -229px -99px;
+}
+.tooltipQuest .serviceInfoDetails {
+	right: -8px;
+	left: auto;
+	text-shadow: none;
+	min-width: 190px;
+}
+.tooltipQuest .serviceInfoDetails:after {
+	left: auto;
+	right: 8px;
+}
+
+.pluginsEnabled .tooltipQuest {
+	clear: none;
+	right: -5px;
+	top: -6px;
+}
+.form-field input[type="text"], .form-field input[type="password"], .form-field input[type="email"], .form-field input[type="number"],.tags{width:50%} .form-field select{width:53%} .md-editor{width:53%}
+.accordion-inner{background-color: #fbfcfc !important;} h4{font-size:15px;}.form-horizontal .control-label{font-size:16px;}
+.infoConfig .serviceInfoIcon {top:8px}
+
+.form-horizontal .control-text {
+    float: left;
+    padding-top: 5px;
+    text-align: left;
+    width: 600px;
+	font-size: 16px;
+	 color: #333333;
+	 padding-left : 30px
+}

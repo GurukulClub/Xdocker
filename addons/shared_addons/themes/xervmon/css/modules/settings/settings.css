@@ -1,0 +1,280 @@
+
+
+.heading h3
+{
+	font-size:30px;
+	font-family:helvetica_ceregular;
+	font-weight:normal;
+}
+
+.tabMain .tabMainTop
+{
+	border-radius:10px 10px 0 0;
+	position:relative;
+		/* fallback */
+  background-color: #fafafa;
+	/* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #fafafa, #ececec);
+	/* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #fafafa, #ececec);
+	/* IE 10 */
+  background: -ms-linear-gradient(top, #fafafa, #ececec);
+	/* Opera 11.10+ */
+  background: -o-linear-gradient(top, #fafafa, #ececec);
+}
+
+#myTab
+{
+	padding:0px 0px 0;
+	margin-bottom:0;
+	border-radius:10px 10px 0 0;
+	border-bottom:1px solid #d1d3d4;
+	box-shadow:0 1px 1px #fff inset;
+	/* fallback */
+  background-color: #d5d7d7;
+	/* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #d5d7d7, #e4e5e6);
+	/* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #d5d7d7, #e4e5e6);
+	/* IE 10 */
+  background: -ms-linear-gradient(top, #d5d7d7, #e4e5e6);
+	/* Opera 11.10+ */
+  background: -o-linear-gradient(top, #d5d7d7, #e4e5e6);
+}
+
+ul#myTab
+{
+	box-shadow:none;
+	background:none repeat scroll 0 center transparent
+}
+
+#myTab> li > a
+{
+	width:auto !important;
+	box-shadow:0 1px 0px #fff inset;
+	text-align:center;
+	font-size:13px;
+	padding:5px 25px;
+	color:#2c2c2c;
+	font-family:Arial, Helvetica, sans-serif;
+	border-radius:6px 6px  0 0;
+	border-color:#e6e5e5 #e6e5e5 #D1D3D4;
+	/* fallback */
+  background-color: #fefefe;
+	/* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #fefefe, #e6e5e5);
+	/* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #fefefe, #e6e5e5);
+	/* IE 10 */
+  background: -ms-linear-gradient(top, #fefefe, #e6e5e5);
+	/* Opera 11.10+ */
+  background: -o-linear-gradient(top, #fefefe, #e6e5e5);
+}
+
+.nav-tabs > li > a
+{
+	text-transform:uppercase;
+	font-weight:bold;
+}
+
+#myTab > li.active > a:after
+{
+	border: medium solid transparent;
+	content: " ";
+	position: absolute;
+	top: 107%;
+	left:40%;
+	z-index:9;
+	border-color:#F7F8F8 transparent transparent transparent;
+	border-width:9px;
+}
+
+#myTab > li.active > a:after
+{
+	color:#fff;
+	top:32px;
+	border-color: #FFF rgba(136, 183, 213, 0) rgba(136, 183, 213, 0);
+}
+
+.tabMain .tab-content
+{
+	overflow:hidden;
+	padding:30px 0 0;
+	box-shadow:0 1px 0 #FFFFFF inset;
+	/* fallback */
+  background-color: #f9f9f9;
+	/* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #F9F9F9 0.5%, #FFFFFF 1.5%);
+	/* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #F9F9F9 0.5%, #FFFFFF 1.5%);
+	/* IE 10 */
+  background: -ms-linear-gradient(top, #F9F9F9 0.5%, #FFFFFF 1.5%);
+	/* Opera 11.10+ */
+  background: -o-linear-gradient(top, #F9F9F9 0.5%, #FFFFFF 1.5%);
+}
+
+.contentBlock {
+	box-shadow:0 0 3px #e8e7e7;
+	border:1px solid #DCDDDD;
+	border-radius:10px;
+
+	  background-color: #fbfcfc !important;
+
+  /* Safari 5.1+, Chrome 10+ */
+  background: -webkit-linear-gradient(bottom, #f3f3f3, #fbfcfc 18px) !important;
+	/* Firefox 3.6+ */
+  background: -moz-linear-gradient(bottom, #f3f3f3, #fbfcfc 18px) !important;
+	/* IE 10 */
+  background: -ms-linear-gradient(bottom, #f3f3f3, #fbfcfc 18px) !important;
+	/* Opera 11.10+ */
+  background: -o-linear-gradient(bottom, #f3f3f3 , #fbfcfc 18px) !important;
+}
+
+.contentBlock h4
+{
+	border-radius:10px 10px 0 0;
+	padding:11px 0.2em 13px 1em;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+	font-weight:normal;
+	text-shadow:0px 1px 0px #fff;
+	margin:0;
+	 /* fallback */
+  background-color: #f8f8f8;
+
+  /* Safari 5.1+, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #f8f8f8, #e7e7e7);
+
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #f8f8f8, #e7e7e7);
+
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #f8f8f8, #e7e7e7);
+
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #f8f8f8, #e7e7e7);
+}
+.contentBlockDetails
+{
+	margin: 0.3em;
+    padding: 0.8em;
+    overflow-x: hidden;
+    overflow-y: hidden;
+	position:relative;
+}
+.contentBlockDetails .form-horizontal
+{
+	margin-top:30px;
+}
+.form-horizontal .control-group {
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+.form-horizontal .control-label {
+    color: #333333;
+    font-family: helvetica_ceregular;
+    font-size: 13px !important;
+    font-weight: normal;
+    margin-right: 16px;
+    text-align: right;
+    width: 220px;
+}
+.form-horizontal .controls{
+	margin-left :180px;
+	   margin-bottom: -18px;
+
+}
+
+
+
+.form-horizontal .control-group:before, .form-horizontal .control-group:after {
+    display: block !important;
+}
+
+.serviceInfoHover.infoConfig
+{
+	display:inline-block;
+}
+.infoConfig .serviceInfoDetails
+{
+	min-width:200px;
+}
+
+
+.serviceInfoHover
+{
+	position:relative;
+	text-decoration:underline;
+	line-height:35px;
+	clear:left;
+	font-size:11px;
+	cursor:pointer;
+}
+.serviceInfoHover:hover
+{
+	text-decoration:none;
+}
+.serviceInfoIcon
+{
+	background-position:-145px -166px;
+	margin:9px 1px 0 0;
+}
+.serviceInfoDetails
+{
+	display:none;
+	position:absolute;
+	left:0;
+	top:32px;
+	background:rgba(0, 0, 0, 0.9);
+	color:#fff;
+	padding:10px;
+	border-radius:5px;
+	min-width:450px;
+	z-index:9;
+	line-height:normal;
+}
+.serviceInfoDetails p
+{
+	float:left;
+	width:100%;
+	margin:0;
+}
+.serviceInfoDetails p .detail
+{
+	color:#36b6e2;
+	margin-left:5px;
+}
+.serviceInfoDetails:after
+{
+	position:absolute;
+	top:-18px;
+	left:7px;
+	content:"";
+	border-width:9px;
+	border-color: transparent transparent rgba(0, 0, 0, 0.9);
+	border-style:solid;
+}
+.serviceInfoHover:hover .serviceInfoDetails
+{
+	display:block;
+
+}
+
+.form-field input[type="text"], .form-field input[type="password"], .form-field input[type="email"], .form-field input[type="number"], .form-field textarea{
+    width: 51.7179%;
+}
+ .form-field select{
+    width: 480px;
+}
+
+.icons
+{
+	background: url(../../../img/sprite.png) no-repeat;
+	width:16px;
+	height:16px;
+	margin-right:8px;
+	background-position:-145px -166px;
+}
+
+

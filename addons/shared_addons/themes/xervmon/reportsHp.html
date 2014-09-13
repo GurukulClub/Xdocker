@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reports Hp</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Le styles -->
+<link href="css/bootstrap/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/common/style.css" rel="stylesheet">
+<link href="css/common/jquery-ui.css" rel="stylesheet">
+<link href="css/common/responsiveStyle.css" rel="stylesheet">
+<link href="css/common/daterangepicker-bs2.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <logo class="logoInside"><img src="img/logo-small.png"></logo>
+            <ul class="xervmon-topList">
+                <li class="xervmon-search">
+                    <input type="text" placeholder="Search">
+                    <i class="icon-search"></i></li>
+    <li class="xervmon-priority"><a href="#highPriority" class="blink">2 High priority actions</a></li>
+    <li><a href="#"><span class="hpIcon icons pull-left"></span></a></li>
+    <li class="xervmon-user">Welcome, ajith1<span class="settings"></span>
+     <div class="settingsDetail">
+      <ul>
+       <li><a href="#"><span class="editProfile"></span>Edit Profile</a></li>
+       <li><a href="#"><span class="logout"></span>Logout</a></li>
+      </ul>
+     </div>
+    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="xervmon-container" class="row-fluid">
+<button type="button" class="btn btn-navbar tabIcon" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+          </button>
+    <div id="xervmon-sidebar">
+        <div class=" sidebar-nav">
+            <div id="accordion2" class="accordion">
+                <div class="nav-header">MAIN MENU</div>
+                <div class="accordion-group" id="dashboard">
+     <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFirst"><span class="sideBarIcon dashboardIcon"></span> Dashboard</i> </a> </div>
+     <div class="accordion-body collapse" id="collapseFirst">
+                        <div class="accordion-inner"></div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="manage">
+     <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"> <span class="sideBarIcon manageIcon"></span>Manage<i class="arrow"></i> </a> </div>
+                    <div id="collapseOne" class="accordion-body collapse">
+                        <div class="accordion-inner active"><span class="sideBarIcon manageBuisenessIcon"></span>Business Metadata </div>
+                        <div class="accordion-inner"><span class="sideBarIcon cheifClientIcon"></span>Chef Client</div>
+                        <div class="accordion-inner "><span class="sideBarIcon commentsIcon"></span>Comments</div>
+                        <div class="accordion-inner"><span class="sideBarIcon manageenterpriseIcon"></span>Enterprise App Bazaar</div>
+                        <div class="accordion-inner"><span class="sideBarIcon filesIcon"></span>Files</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="cloud">
+     <div class="accordion-heading"> <a href="#collapseTwo" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon cloudIcon"></span>Cloud<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseTwo">
+                        <div class="accordion-inner active"><span class="sideBarIcon deployPlannerIcon"></span>Deployment Planner</div>
+                        <div class="accordion-inner"><span class="sideBarIcon emailTemplateIcon"></span>Email Templates</div>
+                        <div class="accordion-inner"><span class="sideBarIcon manageCloudIcon"></span>Manage Cloud</div>
+                        <div class="accordion-inner"><span class="sideBarIcon monitorIcon"></span>Monitoring</div>
+                        <div class="accordion-inner"><span class="sideBarIcon rackcloudObjectIcon"></span>Rackcloud ObjectStorage</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="tools">
+     <div class="accordion-heading"> <a href="#collapseThree" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon toolIcon"></span>Tools<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseThree">
+                        <div class="accordion-inner active"><span class="sideBarIcon apiMngmtIcon"></span> API Management</div>
+                        <div class="accordion-inner"><span class="sideBarIcon maintenanceIcon"></span> Maintenance</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="users">
+     <div class="accordion-heading"> <a href="#collapseFour" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon usersIcon"></span>Users<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseFour">
+                        <div class="accordion-inner active"><span class="sideBarIcon groupsIcon"></span>Groups</div>
+                        <div class="accordion-inner"><span class="sideBarIcon permissionsIcon"></span>Permissions</div>
+                        <div class="accordion-inner"><span class="sideBarIcon usersIconNew"></span>Users</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="settings">
+     <div class="accordion-heading"> <a href="#collapseFive" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon settingsIcon"></span>Settings</a> </div>
+     <div class="accordion-body collapse" id="collapseFive">
+                        <div class="accordion-inner"></div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="addons">
+     <div class="accordion-heading"> <a href="#collapseSix" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon addonsIcon"></span>Add-ons<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseSix">
+                        <div class="accordion-inner active"><span class="sideBarIcon modulesIcon"></span>Modules</div>
+                        <div class="accordion-inner"><span class="sideBarIcon themesIcon"></span>Themes</div>
+                        <div class="accordion-inner"><span class="sideBarIcon pluginsIcon"></span>Plugins</div>
+                        <div class="accordion-inner"><span class="sideBarIcon widgetsIcon"></span>Widgets</div>
+                        <div class="accordion-inner"><span class="sideBarIcon fieldTypesIcon"></span>Field Types</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="profile">
+     <div class="accordion-heading"> <a href="#collapseSeven" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon profileIcon"></span>Profile<i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseSeven">
+                        <div class="accordion-inner active"><span class="sideBarIcon editProfileIcon"></span>Edit profile</div>
+                        <div class="accordion-inner"><span class="sideBarIcon logoutIcon"></span>Logout</div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="accounts">
+     <div class="accordion-heading"> <a href="#collapseEight" data-parent="#accordion2" data-toggle="collapse" class="accordion-toggle"><span class="sideBarIcon accountsIcon"></span>Accounts <i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseEight">
+                        <div class="accordion-inner active"><span class="sideBarIcon amazonAccntIcon"></span>Amazon Account </div>
+                        <div class="accordion-inner"><span class="sideBarIcon hpIcon"></span> HP CSI Reports</div>
+                        <div class="accordion-inner"><span class="sideBarIcon hpIcon"></span> HP Cloud Account</div>
+                        <div class="accordion-inner"><span class="sideBarIcon rackcloudObjectIcon"></span> Rackspace Cloud Account</div>
+                    </div>
+                </div>
+                <div class="accordion-group selectedAccordian" id="reports">
+     <div class="accordion-heading"> <a href="#collapseNine" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"><span class="sideBarIcon reportIcon"></span>Reports Builder</a> </div>
+     <div class="accordion-body collapse" id="collapseNine">
+                        <div class="accordion-inner"></div>
+                    </div>
+                </div>
+                <div class="accordion-group" id="reqiusitions">
+     <div class="accordion-heading"> <a href="#collapseTen" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"><span class="sideBarIcon supportIcon"></span> Requisitions  <i class="arrow"></i> </a> </div>
+                    <div class="accordion-body collapse" id="collapseTen">
+                        <div class="accordion-inner active"><span class="sideBarIcon requisitIcon"></span>Requisitions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.well --> 
+    </div>
+    <div id="xervmon-mainContent"> <span class="expdBtn"></span>
+        <div id="xervmon-dashboardContent" class="rightContent">
+           dashboard contents
+        </div>
+        <!--xervmon-dashboardContent ends--> 
+        
+        <div id="xervmon-manageContent" class="rightContent">
+           manage contents
+        </div>
+        <!--xervmon-manageContent ends--> 
+        
+        <div id="xervmon-cloudContent" class="rightContent">
+        cloud contents
+        </div>
+        <!--xervmon-cloudContent ends-->
+        
+        <div id="xervmon-toolsContent" class="rightContent">
+        tools contents
+        </div>
+        <!--xervmon-toolsContent ends-->
+        
+        <div id="xervmon-usersContent" class="rightContent">
+        users contents
+        </div>
+        <!--xervmon-usersContent ends-->
+        
+        <div id="xervmon-settingsContent" class="rightContent">
+        settings contents
+        </div>
+        <!--xervmon-settingsContent ends-->
+        
+        <div id="xervmon-addonsContent" class="rightContent">
+        addons contents
+        </div>
+        <!--xervmon-addonsContent ends-->
+        
+        <div id="xervmon-profileContent" class="rightContent">
+        profile contents
+        </div>
+        <!--xervmon-profileContent ends-->
+        
+        <div id="xervmon-accountsContent" class="rightContent">
+        accounts contents
+        </div>
+        <!--xervmon-accountsContent ends-->
+        
+        <div id="xervmon-reportsContent" class="rightContent">
+        <ul class="topStrip">
+            <li class="normal">rackaccount<span class="divider"></span>
+            <ul class="subList"><li>Estimated Summary</li><li>Billing Summary</li><li>Spend Trend</li></ul>
+            </li>
+            <li class="normal">Rackspace II Generation<span class="divider"></span>
+             <ul class="subList"><li>Estimated Summary</li><li>Billing Summary</li><li>Spend Trend</li></ul></li>
+            <li class="active">HP Cloud CSM<span class="divider"></span>
+            <ul class="subList sublistHp"><li class="active">HP Summary</li><li>SPEND SERVERS/STORAGE/NETWORK</li><li>Charge back</li></ul>
+            </li>
+            </ul>
+            <div class="subListMain"></div>
+        <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12" >
+                        <ul class="breadcrumb">
+                          <li class="active"><a href="#">Reports Builder</a></li>
+                        </ul>
+                        <h3>Report Builder</h3>
+                        <div class="contentBlock">
+                        <h4>Report Summary
+                        <div class="serviceInfoHover pull-right tooltipQuest">
+                        <i class="serviceInfoIcon icons pull-left"></i>
+                        <div class="serviceInfoDetails">
+                        lorem ipsum Lorem ipsum dolor sit amet
+                        </div>
+                        </div></h4>
+                        <div class="contentBlockDetails">
+                        <div class="row-fluid filterBtn">
+                        <ul class="nav nav-pills">
+                        <li><button class="close">x</button><a href="#">Reports Builder</a></li>
+                        <li><button class="close">x</button><a href="#">Reports </a></li>
+                        <li><button class="close">x</button><a href="#">Reports Builder</a></li>
+                        <li class="active"><button class="close">x</button><a href="#" class="active">hp summary </a></li>
+                        </ul>
+                        </div>
+                        <div class="row-fluid selectDateMain">
+                        <div class="pull-left serviceInfo">
+                        <div class="serviceInfoHover pull-left">
+                        <i class="serviceInfoIcon icons pull-left"></i>Service Info
+                        <div class="serviceInfoDetails">
+                        <p><span class="pull-left">Service ID:</span></p>
+                        <p><span class="pull-left">Infrastructure Service:</span><span class="detail">92508d4-78d6-492508d4-78d6-492508d4-78d6-492508d4-78d6-4</span></p>
+                        <p><span class="pull-left">Service Name:</span><span class="detail">Service Guard</span></p>
+                        <p><span class="pull-left">Service Start Date:</span><span class="detail">2013-07-19</span></p>
+                        <p><span class="pull-left">Service Start Date:</span><span class="detail">NA</span></p>
+                        </div>
+                        </div>
+                        </div>
+                        <div class="pull-left selectDate">
+                        <span class="pull-left">Select Date:</span>
+                        <div id="reportrange" class="pull-left"><i class="icon-calendar icon-large pull-right"></i>
+                        <span>July 14, 2013 - August 13, 2013</span></div>
+                        </div>
+                        <a class="btn pull-right btnXerv">EXPORT</a>
+                        <div class="totalAmnt pull-right"><i class="cashicon icons"></i>Total Amount:<span>$ 399.48</span></div>
+                        </div>
+                        <div class="showmoreBtn"></div>
+  <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="TableContainer1">
+  <thead>
+   <tr>
+    <th>ItemId</th>
+    <th>ItemDescription</th>
+    <th>Type</th>
+    <th>ItemAmount</th>
+    <th>ItemDate</th>
+   </tr>
+  </thead>
+  <thead>
+  <tr>
+  <th rowspan="1" colspan="1"><input type="text" class="search_init" value="Search " name="search_engine"></th>
+  <th rowspan="1" colspan="1"><input type="text" class="search_init" value="Search " name="search_browser"></th>
+  <th rowspan="1" colspan="1"><input type="text" class="search_init" value="Search " name="search_platform"></th>
+  <th rowspan="1" colspan="1"><input type="text" class="search_init" value="Search " name="search_version"></th>
+  <th rowspan="1" colspan="1"><input type="text" class="search_init" value="Search " name="search_version"></th>
+  </tr>
+  </thead>
+  <tbody>
+   <tr >
+    <td class="textAlignCenter"><a href="#">15192</a></td>
+    <td></td>
+    <td><a href="#" class="infoHover pull-left"><i class="icons invoiceIcon pull-left"><div class="serviceInfoDetails">
+                        <p><span class="pull-left">Dummy iD:</span></p>
+                        <p><span class="pull-left">Dummy iD:</span><span class="detail">Service Guard</span></p>
+                        <p><span class="pull-left">Dummy iD:</span><span class="detail">2013-07-19</span></p>
+                        <p><span class="pull-left">Dummy iD:</span><span class="detail">NA</span></p>
+                        </div></i>INVOICE</a></td>
+    <td class="textAlignRight"><a href="#">613.32</a></td>
+    <td class="textAlignCenter"><a href="#">12/02/2013</a></td>
+   </tr>
+   <tr >
+    <td class="textAlignCenter">2437321</td>
+    <td>Account credit</td>
+    <td>CREDIT</td>
+    <td class="textAlignRight">613.32</td>
+    <td class="textAlignCenter">12/02/2013</td>
+   </tr>
+   <tr >
+    <td class="textAlignCenter">14431</td>
+    <td>Account credit</td>
+    <td>REFUND</td>
+    <td class="textAlignRight">613.32</td>
+    <td class="textAlignCenter">12/02/2013</td>
+   </tr>
+   <tr >
+    <td class="textAlignCenter"><a href="#">16431</a></td>
+    <td>Account credit</td>
+    <td><a href="#" class="infoHover pull-left"><i class="icons invoiceIcon pull-left"><div class="serviceInfoDetails">
+                        <p><span class="pull-left">Dummy iD:</span></p>
+                        <p><span class="pull-left">Dummy iD:</span><span class="detail">Service Guard</span></p>
+                        <p><span class="pull-left">Dummy iD:</span><span class="detail">2013-07-19</span></p>
+                        <p><span class="pull-left">Dummy iD:</span><span class="detail">NA</span></p>
+                        </div></i>INVOICE</a></td>
+    <td class="textAlignRight"><a href="#">613.32</a></td>
+    <td class="textAlignCenter"><a href="#">12/02/2013</a></td>
+   </tr>
+   <tr >
+    <td class="textAlignCenter">15192</td>
+    <td>Account credit</td>
+    <td>CREDIT</td>
+    <td class="textAlignRight">613.32</td>
+    <td class="textAlignCenter">12/02/2013</td>
+   </tr>
+   <tr >
+    <td class="textAlignCenter">2437321</td>
+    <td>Account credit</td>
+    <td>REFUND</td>
+    <td class="textAlignRight">613.32</td>
+    <td class="textAlignCenter">12/02/2013</td>
+   </tr>
+   <tr >
+    <td class="textAlignCenter">14431</td>
+    <td>Account credit</td>
+    <td>CREDIT</td>
+    <td class="textAlignRight">613.32</td>
+    <td class="textAlignCenter">12/02/2013</td>
+   </tr>
+   <tr >
+    <td class="textAlignCenter">15192</td>
+    <td>Account credit</td>
+    <td>CREDIT</td>
+    <td class="textAlignRight">613.32</td>
+    <td class="textAlignCenter">12/02/2013</td>
+   </tr>
+   <tr >
+    <td class="textAlignCenter">2437321</td>
+    <td>Account credit</td>
+    <td>REFUND</td>
+    <td class="textAlignRight">613.32</td>
+    <td class="textAlignCenter">12/02/2013</td>
+   </tr>
+   <tr >
+    <td class="textAlignCenter">14431</td>
+    <td>Account credit</td>
+    <td>CREDIT</td>
+    <td class="textAlignRight">613.32</td>
+    <td class="textAlignCenter">12/02/2013</td>
+   </tr>
+   <tr >
+    <td class="textAlignCenter">16431</td>
+    <td>Account credit</td>
+    <td>CREDIT</td>
+    <td class="textAlignRight">613.32</td>
+    <td class="textAlignCenter">12/02/2013</td>
+   </tr>
+   <tr >
+    <td class="textAlignCenter">15192</td>
+    <td>Account credit</td>
+    <td>REFUND</td>
+    <td class="textAlignRight">613.32</td>
+    <td class="textAlignCenter">12/02/2013</td>
+   </tr>
+   <tr >
+    <td class="textAlignCenter">2437321</td>
+    <td>Account credit</td>
+    <td>CREDIT</td>
+    <td class="textAlignRight">613.32</td>
+    <td class="textAlignCenter">12/02/2013</td>
+   </tr>
+   <tr >
+    <td class="textAlignCenter">14431</td>
+    <td>Account credit</td>
+    <td>CREDIT</td>
+    <td class="textAlignRight">613.32</td>
+    <td class="textAlignCenter">12/02/2013</td>
+   </tr>
+   <tr >
+    <td class="textAlignCenter">16431</td>
+    <td>Account credit</td>
+    <td>REFUND</td>
+    <td class="textAlignRight">613.32</td>
+    <td class="textAlignCenter">12/02/2013</td>
+   </tr>
+   <tr >
+    <td class="textAlignCenter">15192</td>
+    <td>Account credit</td>
+    <td>CREDIT</td>
+    <td class="textAlignRight">613.32</td>
+    <td class="textAlignCenter">12/02/2013</td>
+   </tr>
+   <tr >
+    <td class="textAlignCenter">2437321</td>
+    <td>Account credit</td>
+    <td>CREDIT</td>
+    <td class="textAlignRight">613.32</td>
+    <td class="textAlignCenter">12/02/2013</td>
+   </tr>
+   <tr >
+    <td class="textAlignCenter">14431</td>
+    <td>LbaaS duplicate usage</td>
+    <td>CREDIT</td>
+    <td class="textAlignRight">613.32</td>
+    <td class="textAlignCenter">12/02/2013</td>
+   </tr>
+  </tbody>
+ </table>
+ <div class="tableBottomRow"><div class="totalAmnt pull-left totalCost"><i class="cashicon icons"></i>Total Cost of visible items:<span>$ 399.48</span></div></div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            </div>
+        <!--xervmon-reportsContent ends-->
+        
+        <div id="xervmon-reqiusitionsContent" class="rightContent">
+        requisitions contents
+        </div>
+        <!--xervmon-requisitionsContent ends-->
+        
+    </div>
+    <!-- mainContent ends-->
+   
+</div>
+<!--/row-->
+
+<footer>
+ <p>Copyright &copy; 2012 - 2013 Xervmon Inc. <span class="footerRight">Rendered in 0.2578 sec. using 17.61MB</span></p>
+ <p class="version">Version 2.2.1 Professional</p>
+</footer>
+
+<!-- Le javascript
+    ================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script src="js/script/jquery/jquery-1.9.1.min.js"></script> 
+<script src="js/script/jquery/jquery-migrate-1.1.1.min.js"></script>
+<script src="js/script/jquery/jquery-ui.min.js"></script> 
+<script src="js/script/jquery/jquery.dataTables.min.js"></script> 
+<script src="js/script/jquery/flotr2.min.js"></script> 
+<script src="js/script/bootstrap/bootstrap.js"></script> 
+<script src="js/script/script.js"></script> 
+
+
+ 
+
+<script>
+ $(document).ready(function() {
+	
+	 var asInitVals = new Array();
+	 var oTable1 = $('#TableContainer1').dataTable({"sPaginationType": "full_numbers","oLanguage":{"sSearch": "Search all columns:"}});
+	
+	$("th input").keyup( function () {
+		/* Filter on the column (the index) of this element */
+		oTable1.fnFilter( this.value, $("th input").index(this) );
+	} );
+	
+	/*
+	 * Support functions to provide a little bit of 'user friendlyness' to the textboxes in 
+	 * the footer
+	 */
+	$("th input").each( function (i) {
+		asInitVals[i] = this.value;
+	} );
+	
+	$("th input").focus( function () {
+		if ( this.className == "search_init" )
+		{
+			this.className = "";
+			this.value = "";
+		}
+	} );
+	
+	$("th input").blur( function (i) {
+		if ( this.value == "" )
+		{
+			this.className = "search_init";
+			this.value = asInitVals[$("th input").index(this)];
+		}
+	} );
+	
+	 $('.showmoreBtn').toggle( function show() {
+        oSettings1 = oTable1.fnSettings();
+        oSettings1._iDisplayLength = -1;
+        oTable1.fnDraw();
+		 $(this).addClass('hideBtn');
+    },function hide()
+	{
+        oSettings1._iDisplayLength =10;
+        oTable1.fnDraw();
+		$(this).removeClass('hideBtn');
+	});
+       
+	   $(".paginate_button_disabled.first,.paginate_button.next,.paginate_button_disabled.previous,.paginate_button.last").text("");
+ });
+ 
+
+ 
+</script>
+
+    <script src="js/script/jquery/daterangepicker.js"></script>
+    <script src="js/script/jquery/moment.min.js"></script>
+    <script>
+$('#reportrange').daterangepicker(
+    {
+      ranges: {
+         'Today': [moment(), moment()],
+         'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
+         'Last 7 Days': [moment().subtract('days', 6), moment()],
+         'Last 30 Days': [moment().subtract('days', 29), moment()],
+         'This Month': [moment().startOf('month'), moment().endOf('month')],
+         'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
+      }
+    },
+    function(start, end) {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+    }
+);
+	</script>
+</body>
+</html>

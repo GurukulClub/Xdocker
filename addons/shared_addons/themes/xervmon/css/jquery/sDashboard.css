@@ -1,0 +1,256 @@
+/*
+ * jquery sDashboard (2.5-1.1.2)
+ * Copyright 2012, Model N, Inc
+ * Modified by Doers' Guild for Xervmon
+ * Distributed under MIT license.
+ * https://github.com/ModelN/sDashboard
+ */
+
+/*dashboard css*/
+.sDashboard {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 10px;
+    padding-top: 10px;
+    width: 100%;
+    height: 100%;
+    /*overflow: auto;*/
+}
+
+.sDashboard > li {
+    margin: 3px 3px 3px 0;
+    padding: 1px;
+    float: left;
+    width: 620px;
+    max-width: 100%;
+    height: auto;
+}
+
+/*dashboard widget css*/
+.sDashboardWidget {
+    margin: 0 1em 1em 0;
+    background-color: #fbfcfc;
+    /* Safari 5.1+, Chrome 10+ */
+    background: -webkit-gradient(linear, left bottom, left top, from(#f3f3f3), to(#fbfcfc));
+    background: -webkit-linear-gradient(bottom, #f3f3f3, #fbfcfc 18px);
+    background: linear-gradient(bottom, #f3f3f3, #fbfcfc 18px);
+    /* Firefox 3.6+ */
+    /* IE 10 */
+    /* Opera 11.10+ */
+}
+
+/*dashboard widget header css*/
+.sDashboardWidgetHeader {
+    margin: 0.3em;
+    padding-bottom: 5px;
+    padding-left: 1em;
+    padding-right: 0.2em;
+    padding-top: 2px;
+    cursor: move;
+}
+
+.sDashboardWidgetHeader .ui-icon {
+    float: right;
+    margin-left: 5px;
+    cursor: default;
+    border: 1px solid #ccc;
+}
+.sDashboardWidgetHeader .ui-icon:hover {
+    background-color: #DDD;
+}
+
+/*dashboard widget content css*/
+.sDashboardWidgetContent {
+    margin: 0.08em;
+    padding: 0.8em;
+    height: 180px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.sDashboardWidgetContentMaximized {
+    margin: 0.3em;
+    padding: 0.4em;
+    height: 550px;
+    overflow: auto;
+}
+
+.sDashboardWidgetContainerMaximized {
+    z-index: 9999;
+    margin: 0.3em;
+    padding: 0.4em;
+    width: 98%;
+    height: 98%;
+    left: .5%;
+    top: 0px;
+    position: fixed;
+}
+
+.sDashboardWidgetContent tr:hover {
+    background-color: #FCEFA1;
+    cursor: pointer;
+}
+
+/*dashboard table widget css*/
+.sDashboardTableView {
+    width: 100%;
+    height: 95%;
+    overflow: auto;
+}
+
+/*dashboard chart view css*/
+.sDashboardChart {
+    /*  width: 200px;
+     height: 180px;*/
+    width: 100%;
+    height: 95%;
+    /*  cursor: pointer;*/
+}
+
+.sDashboardChartClickable {
+    cursor: pointer;
+}
+.sDashboardChartSelectable {
+    width: 100%;
+    height: 95%;
+    cursor: crosshair;
+}
+
+/*jquery sortable placeholder styles */
+.ui-sortable-placeholder {
+    border: 1px dotted black;
+    visibility: visible !important;
+    height: 50px !important;
+}
+.ui-sortable-placeholder * {
+    visibility: hidden;
+}
+
+li.ui-sortable-placeholder {
+    background-color: #FCEFA1;
+}
+
+/*...*/
+.sDashboard > li > .sDashboardWidget {
+    -webkit-box-shadow: 0 0 3px #e8e7e7;
+    box-shadow: 0 0 3px #e8e7e7;
+    border-radius: 10px;
+}
+.sDashboardWidgetHeader {
+    border: none;
+    border-radius: 10px 10px 0 0;
+    padding-top: 11px !important;
+    padding-bottom: 13px !important;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    text-shadow: 0px 1px 0px #fff;
+    /* fallback */
+    background-color: #f8f8f8;
+    /* Safari 5.1+, Chrome 10+ */
+    background: -webkit-linear-gradient(top, #f8f8f8, #e7e7e7);
+    /* Firefox 3.6+ */
+    /* IE 10 */
+    /* Opera 11.10+ */
+}
+.sDashboardWidgetHeader i {
+    cursor: default;
+}
+.sDashboardWidgetHeader i.pull-right {
+    position: relative;
+    top: 3px;
+    cursor: pointer;
+}
+.sDashboardWidgetContent {
+    overflow: visible;
+    border-radius: 0 0 10px 10px;
+}
+#launchPad, #requisitAlerts, .launchPad, .requisitAlerts {
+    width: 100%;
+}
+#launchPad .sDashboardWidget, #requisitAlerts .sDashboardWidget, .launchPad .sDashboardWidget, .requisitAlerts .sDashboardWidget {
+    margin: 0 0.5em 1em 0;
+}
+#locations, #cloudActivity, #deploymentPlan, #overview, .locations, .cloudActivity, .deploymentPlan, .overview {
+    width: 49%;
+    margin: 3px 0 3px 7px;
+}
+#locations .sDashboardWidget, #cloudActivity .sDashboardWidget, #deploymentPlan .sDashboardWidget, #overview .sDashboardWidget, .locations .sDashboardWidget, .cloudActivity .sDashboardWidget, .deploymentPlan .sDashboardWidget, .overview .sDashboardWidget {
+    margin: 0 0.5em 1em 0;
+}
+.sDashboardWidgetHeader > .icon-th-list {
+    display: none;
+}
+.widgetIcon {
+    height: 30px;
+    width: 30px;
+    background: url(../../img/sprite.png) no-repeat;
+    position: relative;
+    top: -4px;
+    margin-right: 4px;
+    background-position: -104px -125px;
+}
+#launchPad .widgetIcon, .launchPad .widgetIcon {
+    background-position: -33px -124px;
+}
+#overview .widgetIcon, .overview .widgetIcon {
+    background-position: -67px -125px;
+}
+#locations .widgetIcon, .locations .widgetIcon {
+    background-position: -104px -125px;
+}
+#cloudActivity .widgetIcon, .cloudActivity .widgetIcon {
+    background-position: -140px -125px;
+}
+#deploymentPlan .widgetIcon, .deploymentPlan .widgetIcon {
+    background-position: -175px -126px;
+}
+#requisitAlerts .widgetIcon, .requisitAlerts .widgetIcon {
+    background-position: -209px -127px;
+}
+.sDashboardWidgetHeader > [class^="icon-"]:before, .sDashboardWidgetHeader > [class*=" icon-"]:before {
+    content: " ";
+}
+.sDashboardWidgetHeader > [class^="icon-"], .sDashboardWidgetHeader > [class*=" icon-"] {
+    background: url(../../img/sprite.png) no-repeat;
+    margin: 0 3px;
+}
+.sDashboardWidgetHeader > .icon-remove {
+    background-position: -143px -60px;
+}
+.sDashboardWidgetHeader > .icon-plus-sign {
+    background-position: -122px -60px;
+}
+.sDashboardWidgetHeader > .icon-minus-sign {
+    background-position: -122px -76px;
+}
+.sDashboardWidgetHeader > .icon-hide {
+    background-position: -97px -60px;
+    height: 12px;
+}
+.sDashboardWidgetHeader > .js-show-button {
+    background-position: -97px -70px;
+    top: 5px !important;
+}
+.sDashboardWidgetHeader > .tooltiptIcon {
+    color: #f2f2f2;
+    font-weight: bold;
+    border-radius: 15px;
+    background: #7f7f7f;
+    font-style: normal;
+    font-size: 11px;
+    height: 15px;
+    width: 15px;
+    text-align: center;
+    line-height: 15px;
+    margin-right: 15px;
+    text-indent: 2px;
+    text-shadow: none;
+}
+.sDashboardWidgetHeader > .tooltiptIcon:after {
+    content: '';
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #fff;
+    position: relative;
+    left: 11px;
+}

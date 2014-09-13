@@ -1,0 +1,177 @@
+.row-fluid .span0 {
+    width: 0%;
+    margin-left: 0%;
+}
+.margin0 {
+    margin: 0px;
+}
+.padding0 {
+    padding: 0px;
+}
+.padding10-18 {
+    padding: 10px 18px;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.no-floating-lists ul li {
+    float: none !important;
+}
+
+.size-0 {
+    /* !important is bad, but here we don't want it to have anyother height/width other than 0 */
+    height: 0 !important;
+    width: 0 !important;
+}
+
+#cloud_accounts_holder_outer {
+    position: relative;
+}
+#cloud_accounts_hideButton {
+    position: absolute;
+    top: 45%;
+    right: auto;
+    right: -15px;
+}
+
+/* Relevant to the plugin. */
+.jqtree-tree {
+    margin-bottom: 18px;
+}
+
+.jqtree-tree ul {
+    margin: 0;
+}
+
+.jqtree-tree li {
+    list-style-type: none;
+}
+
+.jqtree-tree .jqtree-folder {
+    background-color: #eee;
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color: #ddd;
+}
+
+.jqtree-tree .jqtree-folder:first-child {
+    border-width: 1px 1px 0 1px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.jqtree-tree .jqtree-folder:last-child {
+    border-width: 1px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.jqtree-tree .jqtree-folder:last-child > ul > li:last-child {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.jqtree-tree .jqtree-title {
+    display: inline-block;
+    width: 100%;
+    padding: 5px;
+}
+
+.jqtree-tree .jqtree-folder > div .jqtree-title {
+    font-weight: bold;
+}
+
+.jqtree-tree .jqtree-folder > ul > li {
+    background-color: #fff;
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: #ddd;
+    padding-left: 10px;
+}
+
+.jqtree-tree .jqtree-folder > ul > li:first-child {
+    border-width: 1px 0 0 0;
+}
+
+.jqtree-tree .jqtree-folder > ul > li:last-child {
+    border-width: 1px 0 0 0;
+}
+
+.jqtree-tree i {
+    float: right;
+    margin-right: 15px;
+}
+
+ul.jqtree-tree li.jqtree_common {
+    clear: both;
+    width: 100%;
+    max-width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Imported from inline styles */
+.node-context-menu-holder {
+    z-index: 99999;
+}
+#cloud_accounts_holder_inner {
+    padding: 1px;
+}
+#cloud_accounts_hideButton {
+    z-index: 10;
+}
+ul.jqtree-tree .jqtree-toggler {
+    /* Put the arrows on the right */
+    left: auto;
+    right: 0px;
+}
+ul.jqtree-tree, ul.jqtree-tree ul.jqtree_common, .jqtree-tree .jqtree-folder > ul > li {
+    /* Break long words */
+    word-wrap: break-word;
+}
+.jqtree-tree .jqtree-folder {
+    padding: 12px;
+}
+
+/* Toggle Box */
+.toggle-box-wrapper {
+    position: relative;
+}
+.toggle-box-left, .toggle-box-right {
+    background-color: #f5f5f5;
+    background-color: rgba(245, 245, 245, 0.63);
+    border: 1px solid #e3e3e3;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.05);
+    padding: 5px;
+    position: absolute;
+    top: 6px;
+    right: -12px;
+    left: auto;
+}
+.toggle-box-right {
+    left: -12px;
+    right: auto;
+}
+.toggle-box-left:hover, .toggle-box-right:hover {
+    background-color: rgba(245, 245, 245, 0.95);
+    -webkit-box-shadow: 0px 0px 7px 5px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 7px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 7px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Date-Range-picker*/
+.daterangepicker .ranges input {
+    width: 60px;
+    max-width: 100%;
+}
+input[type="text"].normal, input[type="password"].normal, textarea.normal {
+    width:206px;
+}
